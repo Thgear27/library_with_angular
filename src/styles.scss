@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+/*Estilos globales*/
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+
+    // MODO DEBUG XD
+    outline: 2px solid green;
+    background-color: #0080001F;
+}
+
+html {
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+input {
+    border-radius: 8px;
+}
+
+input:focus {
+    outline: none;
+}
