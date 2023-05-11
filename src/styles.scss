@@ -6,14 +6,23 @@
     padding: 0;
     font-family: 'Inter', sans-serif;
 
-    // MODO DEBUG XD
-    outline: 2px solid green;
-    background-color: #0080001F;
+    // MODO DEBUG
+    // outline: 2px solid green;
+    // background-color: #0080001F;
 }
 
 html {
     font-size: 16px;
     box-sizing: border-box;
+}
+
+
+h1 {
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 40px;
 }
 
 a {
@@ -35,6 +44,18 @@ input {
     border-radius: 8px;
 }
 
+button {
+    border: none;
+}
+
 input:focus {
     outline: none;
+}
+
+button {
+    width: min-content;
+    white-space: nowrap;
+    border-radius: 8px;
+    background-color: #2A2C31;
+    color: white;
 }
