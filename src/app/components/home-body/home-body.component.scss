@@ -1,0 +1,56 @@
+.hero {
+    background-color: #009989;
+    color: white;
+    padding: 26px 60px;
+
+    display: flex;
+    justify-content: space-between;
+
+    &__info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h1 {
+            letter-spacing: 0.5px;
+            font-size: 40px;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 40px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            letter-spacing: 0.5px;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 40px;
+            margin-bottom: 27px;
+        }
+
+        button {
+            position: relative;
+
+            width: min-content;
+            white-space: nowrap;
+            padding: 16px 24px;
+            border-radius: 8px;
+            background-color: #2A2C31;
+            color: white;
+            display: flex;
+            gap: 7px;
+
+            img {
+                position: relative;
+                top: 2px;
+            }
+        }
+
+        img {
+            width: 15px;
+        }
+    }
+}
