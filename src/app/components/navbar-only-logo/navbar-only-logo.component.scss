@@ -1,0 +1,19 @@
+
+$main-color: #24292E;
+
+.navbar-only-logo {
+    background-color: $main-color;
+
+    .inner {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+    }
+
+    &__svglogo-container {
+        margin-right: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+}
