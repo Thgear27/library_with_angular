@@ -8,6 +8,8 @@ import { HomeBodyComponent } from './components/home-body/home-body.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarOnlyLogoComponent } from './components/navbar-only-logo/navbar-only-logo.component';
 import { LoginBodyComponent } from './components/login-body/login-body.component';
+import { HomeComponent } from './views/home/home.component';
+import { LoginRegisterComponent } from './views/login-register/login-register.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LoginBodyComponent } from './components/login-body/login-body.component
     HomeBodyComponent,
     FooterComponent,
     NavbarOnlyLogoComponent,
-    LoginBodyComponent
+    LoginBodyComponent,
+    HomeComponent,
+    LoginRegisterComponent
   ],
   imports: [
     BrowserModule,

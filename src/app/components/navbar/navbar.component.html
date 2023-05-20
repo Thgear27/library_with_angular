@@ -1,7 +1,9 @@
 <nav class="main-navbar">
     <div class="inner container">
         <div class="main-navbar__svglogo-container">
-            <img src="./assets/bookstore-logo.svg" alt="">
+            <a routerLink="/home">
+                <img src="./assets/bookstore-logo.svg" alt="">
+            </a>
         </div>
         <div class="main-navbar__input-container">
             <input class="main-navbar__input-container__input" type="text" placeholder="Buscar">
@@ -14,7 +16,7 @@
         </div>
         <ul class="main-navbar__linkslist">
             <li class="main-navbar__linkslist__item">
-                <a href="#">
+                <a routerLink="/login-register">
                     <img src="./assets/login.svg" alt="">
                     <p>Iniciar Sesión</p>
                 </a>
