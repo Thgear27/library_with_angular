@@ -10,6 +10,7 @@ import { NavbarOnlyLogoComponent } from './components/navbar-only-logo/navbar-on
 import { LoginBodyComponent } from './components/login-body/login-body.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginRegisterComponent } from './views/login-register/login-register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginRegisterComponent } from './views/login-register/login-register.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
