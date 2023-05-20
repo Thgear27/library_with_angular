@@ -1,0 +1,72 @@
+<section class="login-register-container">
+    <div class="options">
+        <div class="options__login" opction-selected="true" [class.selected]='"login"==optionSelected'
+            (click)='onOptionClick("login")'>
+            <h1 class="options__title">INICIAR SESIÓN</h1>
+        </div>
+        <div class="options__register" opction-selected="false" [class.selected]='"register"==optionSelected'
+            (click)='onOptionClick("register")'>
+            <h1 class="options__title">REGISTRARSE</h1>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <!-- TODO: Añadir funcionalidad al form -->
+        <form id="login-form" class="form" action="#" [class.hide]='"login"!=optionSelected'>
+            <div class="form__input-container">
+                <div class="input-field">
+                    <label class="input-field__label" for="login-email">Email</label>
+                    <input class="input-field__input" type="email" id="login-email" name="email-input"
+                        placeholder="ejemplo@ejemplo.com" required>
+                </div>
+                <div class="input-field">
+                    <label class="input-field__label" for="password">Contraseña</label>
+                    <input class="input-field__input" type="password" id="password" placeholder="Ingrese su contraseña"
+                        name="password" required>
+                </div>
+            </div>
+            <button class="form__submit-button" id="submit" type="submit">
+                <img src="./assets/login-form-icon.svg" alt="login icon">
+                Iniciar Sesión
+            </button>
+        </form>
+
+        <!-- TODO: Añadir funcionalidad al form -->
+        <form id="register-form" class="form" action="#" [class.hide]='"register"!=optionSelected'>
+            <div class="form__input-container">
+                <div class="input-field">
+                    <label class="input-field__label" for="name">Nombre</label>
+                    <input class="input-field__input" id="name" type="text" placeholder="Ej: Felipe" required>
+                </div>
+                <div class="input-field">
+                    <label class="input-field__label" for="last-names">Apellidos</label>
+                    <input class="input-field__input" id="last-names" type="text" placeholder="Ej: Gomez" required>
+                </div>
+                <div class="input-field">
+                    <label class="input-field__label" for="register-email">Email</label>
+                    <input class="input-field__input" id="register-email" type="email"
+                        placeholder="Ej: ejemplo@ejemplo.com" required>
+                </div>
+                <div class="input-field">
+                    <label class="input-field__label" for="register-password">Contraseña</label>
+                    <input class="input-field__input" id="register-password" type="password"
+                        placeholder="Ingrese una contraseña" required>
+                </div>
+                <div class="input-field">
+                    <label class="input-field__label" for="dni">DNI</label>
+                    <input class="input-field__input" id="dni" type="text" pattern="[0-9]+"
+                        placeholder="Ingrese su dni" required>
+                </div>
+                <div class="input-field">
+                    <label class="input-field__label" for="phone-number">Teléfono</label>
+                    <input class="input-field__input" id="phone-number" type="text" pattern="[0-9]{9}"
+                        placeholder="Ingrese su número de teléfono" required>
+                </div>
+            </div>
+            <button class="form__submit-button" id="submit" type="submit">
+                <img src="./assets/register-form-icon.svg" alt="login icon">
+                Registrarse
+            </button>
+        </form>
+    </div>
+</section>

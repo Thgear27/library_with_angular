@@ -1,0 +1,91 @@
+$color-selected: #009989;
+
+.login-register-container {
+    // outline: 2px solid green;
+    width: 50%;
+    margin: 50px auto;
+}
+
+.options {
+    display: flex;
+
+    &__login {
+        width: 100%;
+        padding: 10px 0;
+
+        // Por el momento
+        border-bottom: 4px solid #CACACA;
+    }
+
+    &__register {
+
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 4px solid #CACACA;
+    }
+
+    &__title {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+
+        text-align: center;
+    }
+
+    .selected {
+        border-bottom-color: $color-selected;
+    }
+}
+
+// Estilos del formulario
+
+.form-container {
+    margin-top: 20px;
+}
+
+.form {
+    &__input-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    &__submit-button {
+        padding: 10px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+
+        font-weight: 600;
+        line-height: 24px;
+    }
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+
+    &__label {
+        color: #454C52;
+        font-weight: 500;
+        font-size: 0.875rem;
+        line-height: 20px;
+    }
+
+    &__input {
+        padding: 10px;
+        line-height: 1.5rem;
+        border: 1px solid #454C52;
+        border-radius: 8px;
+    }
+}
+
+.hide {
+    display: none;
+}
