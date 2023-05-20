@@ -10,7 +10,7 @@ export class LoginBodyComponent {
   optionSelected?: string;
 
   constructor() {
-    this.optionSelected = "register";
+    this.optionSelected = "login";
   }
 
   onOptionClick(option: string) {
