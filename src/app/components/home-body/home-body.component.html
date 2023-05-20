@@ -52,19 +52,20 @@
 <section class="container">
     <h1>Libros más vendidos</h1>
     <div class="books-grid">
-        <div class="books-grid__item">
+        <div class="books-grid__item" *ngFor="let lib of libros | paginate: { itemsPerPage: 12, currentPage: page }">
             <a href="#">
                 <div class="books-grid__info-container">
                     <div class="books-grid__image-container">
-                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-book-cover-design-template-ea06579b69a398ba7d4fc845e80fcd66_screen.jpg?ts=1673708846"
+                        <img [src]="lib.imagen"
                             alt="Portada del libro">
                     </div>
-                    <p class="books-grid__info-container__title">Warrior</p>
-                    <p class="books-grid__info-container__author">Nicolás Maquiavelo</p>
-                    <p class="books-grid__info-container__price">S/ 40</p>
+                    <p class="books-grid__info-container__title">{{lib.titulo}}</p>
+                    <p class="books-grid__info-container__author">Autor</p>
+                    <p class="books-grid__info-container__price">{{lib.precio}}</p>
                 </div>
             </a>
         </div>
+        <!--
         <div class="books-grid__item">
             <a href="#">
                 <div class="books-grid__info-container">
@@ -180,5 +181,7 @@
                 </div>
             </a>
         </div>
+        -->
     </div>
 </section>
+<pagination-controls style="text-align: center;" (pageChange)="page = $event" previousLabel="Anterior"  nextLabel="Siguiente"></pagination-controls>

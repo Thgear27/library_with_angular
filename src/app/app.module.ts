@@ -11,6 +11,7 @@ import { LoginBodyComponent } from './components/login-body/login-body.component
 import { HomeComponent } from './views/home/home.component';
 import { LoginRegisterComponent } from './views/login-register/login-register.component';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
