@@ -196,10 +196,12 @@
     outline: 1px solid #AAAAAA;
     padding: 15px 20px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .pagination-button--current {
     display: inline-block;
     color: white;
     background-color: #2A2C31;
+    cursor: auto;
 }
