@@ -31,9 +31,6 @@ export class LoginBodyComponent {
     password:"",
   };
 
-  pepito:string ="pepito";
-
-
   registrarse(){
     this.serviceRegistro.registrarCliente(this.cliente).subscribe(data =>{
       this.router.navigate(['home']);
