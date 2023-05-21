@@ -52,122 +52,21 @@
 <section class="container">
     <h1>Libros más vendidos</h1>
     <div class="books-grid">
-        <div class="books-grid__item" *ngFor="let lib of libros | paginate: { itemsPerPage: 12, currentPage: page }">
+        <div class="books-grid__item" *ngFor="let lib of libros | paginate: config">
             <a href="#">
                 <div class="books-grid__info-container">
                     <div class="books-grid__image-container">
-                        <img [src]="lib.imagen"
-                            alt="Portada del libro">
+                        <img [src]="lib.imagen" alt="Portada del libro">
                     </div>
                     <p class="books-grid__info-container__title">{{lib.titulo}}</p>
                     <p class="books-grid__info-container__author">Autor</p>
-                    <p class="books-grid__info-container__price">{{lib.precio}}</p>
+                    <p class="books-grid__info-container__price">S/ {{lib.precio}}</p>
                 </div>
             </a>
         </div>
+
+        <!-- Ejemplo de item -->
         <!--
-        <div class="books-grid__item">
-            <a href="#">
-                <div class="books-grid__info-container">
-                    <div class="books-grid__image-container">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBmzaOtwcaTl7mdAY17AyhyQVTZlTumTXkpg&usqp=CAU"
-                            alt="Portada del libro">
-                    </div>
-                    <p class="books-grid__info-container__title">Warrior</p>
-                    <p class="books-grid__info-container__author">Nicolás Maquiavelo</p>
-                    <p class="books-grid__info-container__price">S/ 40</p>
-                </div>
-            </a>
-        </div>
-        <div class="books-grid__item">
-            <a href="#">
-                <div class="books-grid__info-container">
-                    <div class="books-grid__image-container">
-                        <img src="https://descubierta.es/wp-content/uploads/2022/06/Cover.jpg" alt="Portada del libro">
-                    </div>
-                    <p class="books-grid__info-container__title">Warrior</p>
-                    <p class="books-grid__info-container__author">Nicolás Maquiavelo</p>
-                    <p class="books-grid__info-container__price">S/ 40</p>
-                </div>
-            </a>
-        </div>
-        <div class="books-grid__item">
-            <a href="#">
-                <div class="books-grid__info-container">
-                    <div class="books-grid__image-container">
-                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fef3e732724275.5691035395c75.jpg"
-                            alt="Portada del libro">
-                    </div>
-                    <p class="books-grid__info-container__title">Warrior</p>
-                    <p class="books-grid__info-container__author">Nicolás Maquiavelo</p>
-                    <p class="books-grid__info-container__price">S/ 40</p>
-                </div>
-            </a>
-        </div>
-        <div class="books-grid__item">
-            <a href="#">
-                <div class="books-grid__info-container">
-                    <div class="books-grid__image-container">
-                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-book-cover-design-template-ea06579b69a398ba7d4fc845e80fcd66_screen.jpg?ts=1673708846"
-                            alt="Portada del libro">
-                    </div>
-                    <p class="books-grid__info-container__title">Warrior</p>
-                    <p class="books-grid__info-container__author">Nicolás Maquiavelo</p>
-                    <p class="books-grid__info-container__price">S/ 40</p>
-                </div>
-            </a>
-        </div>
-        <div class="books-grid__item">
-            <a href="#">
-                <div class="books-grid__info-container">
-                    <div class="books-grid__image-container">
-                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-book-cover-design-template-ea06579b69a398ba7d4fc845e80fcd66_screen.jpg?ts=1673708846"
-                            alt="Portada del libro">
-                    </div>
-                    <p class="books-grid__info-container__title">Warrior</p>
-                    <p class="books-grid__info-container__author">Nicolás Maquiavelo</p>
-                    <p class="books-grid__info-container__price">S/ 40</p>
-                </div>
-            </a>
-        </div>
-        <div class="books-grid__item">
-            <a href="#">
-                <div class="books-grid__info-container">
-                    <div class="books-grid__image-container">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBmzaOtwcaTl7mdAY17AyhyQVTZlTumTXkpg&usqp=CAU"
-                            alt="Portada del libro">
-                    </div>
-                    <p class="books-grid__info-container__title">Warrior</p>
-                    <p class="books-grid__info-container__author">Nicolás Maquiavelo</p>
-                    <p class="books-grid__info-container__price">S/ 40</p>
-                </div>
-            </a>
-        </div>
-        <div class="books-grid__item">
-            <a href="#">
-                <div class="books-grid__info-container">
-                    <div class="books-grid__image-container">
-                        <img src="https://descubierta.es/wp-content/uploads/2022/06/Cover.jpg" alt="Portada del libro">
-                    </div>
-                    <p class="books-grid__info-container__title">Warrior</p>
-                    <p class="books-grid__info-container__author">Nicolás Maquiavelo</p>
-                    <p class="books-grid__info-container__price">S/ 40</p>
-                </div>
-            </a>
-        </div>
-        <div class="books-grid__item">
-            <a href="#">
-                <div class="books-grid__info-container">
-                    <div class="books-grid__image-container">
-                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fef3e732724275.5691035395c75.jpg"
-                            alt="Portada del libro">
-                    </div>
-                    <p class="books-grid__info-container__title">Warrior</p>
-                    <p class="books-grid__info-container__author">Nicolás Maquiavelo</p>
-                    <p class="books-grid__info-container__price">S/ 40</p>
-                </div>
-            </a>
-        </div>
         <div class="books-grid__item">
             <a href="#">
                 <div class="books-grid__info-container">
@@ -184,4 +83,37 @@
         -->
     </div>
 </section>
-<pagination-controls style="text-align: center;" (pageChange)="page = $event" previousLabel="Anterior"  nextLabel="Siguiente"></pagination-controls>
+
+<pagination-template class="pagination-container" #p="paginationApi" [id]="config.id!"
+    (pageChange)="config.currentPage = $event">
+
+    <div class="pagination-buttons">
+        <div class="pagination-buttons__previous">
+            <a class="pagination-button" [class.disabled]="p.isFirstPage()" (click)="p.previous()">
+                <img class="pagination-button__img" src="./assets/arrow-navigation.svg" alt="">
+            </a>
+        </div>
+
+        <div *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value">
+            <!-- Not currents -->
+            <a class="pagination-button" (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+                <span>{{ page.label }}</span>
+            </a>
+
+            <!-- Current -->
+            <div class="pagination-button pagination-button--current" *ngIf="p.getCurrent() === page.value">
+                <span>{{ page.label }}</span>
+            </div>
+        </div>
+
+        <div class="pagination-next">
+            <a class="pagination-button" [class.disabled]="p.isLastPage()" (click)="p.next()">
+                <img class="pagination-button__img" src="./assets/arrow-navigation.svg" alt="">
+            </a>
+        </div>
+    </div>
+
+</pagination-template>
+
+<!-- <pagination-controls class="pagination" style="text-align: center;" (pageChange)="page = $event"
+    previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls> -->

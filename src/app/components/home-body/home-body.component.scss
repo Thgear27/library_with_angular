@@ -174,3 +174,34 @@
         }
     }
 }
+
+.disabled {
+    pointer-events: none;
+}
+
+.pagination-buttons {
+    margin-bottom: 30px;
+
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    &__previous {
+        rotate: 180deg;
+    }
+}
+
+.pagination-button {
+    display: inline-block;
+    outline: 1px solid #AAAAAA;
+    padding: 15px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination-button--current {
+    display: inline-block;
+    color: white;
+    background-color: #2A2C31;
+    cursor: auto;
+}
