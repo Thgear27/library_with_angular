@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
 import { RegistroService } from 'src/app/services/registro.service';
 
@@ -11,7 +12,7 @@ import { RegistroService } from 'src/app/services/registro.service';
 export class LoginBodyComponent {
   optionSelected?: string;
 
-  constructor(private serviceRegistro:RegistroService) {
+  constructor(private serviceRegistro:RegistroService,private router:Router) {
     this.optionSelected = "login";
   }
 
@@ -19,7 +20,7 @@ export class LoginBodyComponent {
     this.optionSelected = option; 
   }
 
-  cliente:Cliente={
+  public cliente:Cliente={
     idCliente:0,
     nombreCompleto:"",
     apellido:"",
@@ -30,9 +31,12 @@ export class LoginBodyComponent {
     password:"",
   };
 
+  pepito:string ="pepito";
+
+
   registrarse(){
-    this.serviceRegistro.registrarCliente(this.cliente).subscribe((data:Cliente) =>{
-      this.cliente=data;
+    this.serviceRegistro.registrarCliente(this.cliente).subscribe(data =>{
+      this.router.navigate(['home']);
     },(error)=>{
       console.log(error)
     })

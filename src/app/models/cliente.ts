@@ -8,3 +8,4 @@ export class Cliente {
     direccion!:string;
     password!:string
 }
+
