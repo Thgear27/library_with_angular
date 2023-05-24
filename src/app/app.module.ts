@@ -10,9 +10,10 @@ import { NavbarOnlyLogoComponent } from './components/navbar-only-logo/navbar-on
 import { LoginBodyComponent } from './components/login-body/login-body.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginRegisterComponent } from './views/login-register/login-register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS, useClass: AuthInterceptor,multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
