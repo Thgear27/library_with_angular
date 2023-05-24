@@ -4,6 +4,7 @@ import { Cliente } from 'src/app/models/cliente';
 import { User } from 'src/app/models/user';
 import { LoginService } from 'src/app/services/login.service';
 import { RegistroService } from 'src/app/services/registro.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login-body',
@@ -22,7 +23,7 @@ export class LoginBodyComponent {
     this.optionSelected = option; 
   }
 
-  public cliente:Cliente={
+  cliente:Cliente={
     idCliente:0,
     nombreCompleto:"",
     apellido:"",
@@ -39,7 +40,7 @@ export class LoginBodyComponent {
     },(error)=>{
       console.log(error)
     })
-    alert("REGISTRO EXITOSO");
+    Swal.fire("REGISTRO EXITOSO","REGISTRO EXITOSO","success")
   }
 
   //PARA EL LOGIN
@@ -58,13 +59,16 @@ export class LoginBodyComponent {
         this.loginService.setClient(cliente);
         console.log(cliente);
       })
-      alert("INGRESO COMPLETO")
+      //alert("INGRESO COMPLETO")
+      Swal.fire("LOGIN EXITOSO","LOGIN EXITOSO","success")
       this.router.navigate(['home']);
+      
       
     },(error) =>{
       alert("ERROR AL INGRESAR")
       console.log(error)
     })
+    
   }
 
 
