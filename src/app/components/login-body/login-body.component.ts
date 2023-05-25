@@ -34,43 +34,52 @@ export class LoginBodyComponent {
     password: "",
   };
 
-  registrarse() {
-    this.serviceRegistro.registerClient(this.cliente).subscribe(
-      data => { this.router.navigate(['home']); }
-      , (error) => {
-      console.log(error)
+  submitRegister() {
+    this.serviceRegistro.registerClient(this.cliente).subscribe({
+      next: data => { console.log(data); },
+      error: (error) => {
+        console.log(error)
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          confirmButtonColor: "#2A2C31",
+          text: 'Algo ha salido mal, inténtalo más tarde',
+        })
+      },
+      complete: () => {
+        Swal.fire("Registro exitoso", "Usted ha sido registrado correctamente", "success")
+        this.router.navigate(['home']);
+      }
     })
-    Swal.fire("REGISTRO EXITOSO", "REGISTRO EXITOSO", "success")
+
   }
 
   //PARA EL LOGIN
-
   user: User = {
     username: '',
     password: '',
   };
 
 
-  login() {
-    this.loginService.generateToken(this.user).subscribe((data: any) => {
-      this.loginService.loginUser(data.token) //POR EL CONTENIDO QUE ME DA LA RESPUESTA EN MI BACK
-      console.log(data.token);
-      this.loginService.getCurrentClient().subscribe((cliente: any) => {
-        this.loginService.setClient(cliente);
-        console.log(cliente);
-      })
-      //alert("INGRESO COMPLETO")
-      Swal.fire("LOGIN EXITOSO", "LOGIN EXITOSO", "success")
-      this.router.navigate(['home']);
+  submitLogin() {
+    this.loginService.generateToken(this.user).subscribe({
+      next: (data: any) => {
+        this.loginService.loginUser(data.token) //POR EL CONTENIDO QUE ME DA LA RESPUESTA EN MI BACK
+        console.log(data.token);
+        this.loginService.getCurrentClient().subscribe((cliente: any) => {
+          this.loginService.setClient(cliente);
+          console.log(cliente);
+        })
+        //alert("INGRESO COMPLETO")
+        Swal.fire("Inicio de sesión", "Usted ha iniciado sesión correctamente", "success")
+        this.router.navigate(['home']);
 
-
-    }, (error) => {
-      alert("ERROR AL INGRESAR")
-      console.log(error)
-    })
-
+      },
+      error: (error) => {
+        alert("ERROR AL INGRESAR")
+        console.log(error)
+      }
+    });
   }
-
-
 
 }

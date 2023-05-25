@@ -11,8 +11,8 @@
     </div>
 
     <div class="form-container">
-        <!-- TODO: Añadir funcionalidad al form -->
-        <form id="login-form" class="form" action="" (ngSubmit)="login()" *ngIf="'login' == optionSelected">
+        <!-- FORMULARIO INICIO DE SESIÓN -->
+        <form id="login-form" class="form" action="" (ngSubmit)="submitLogin()" *ngIf="'login' == optionSelected">
             <div class="form__input-container">
                 <div class="input-field">
                     <label class="input-field__label" for="login-email">Usuario</label>
@@ -32,7 +32,7 @@
         </form>
 
         <!-- FORMULARIO DE REGISTRO -->
-        <form id="register-form" #registerform="ngForm" class="form" (ngSubmit)="registrarse()"
+        <form id="register-form" #registerform="ngForm" class="form" (ngSubmit)="submitRegister()"
             *ngIf="'register' == optionSelected">
             <div class="form__input-container">
                 <div class="input-field">
