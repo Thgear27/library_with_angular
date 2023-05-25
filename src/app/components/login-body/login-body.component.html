@@ -1,70 +1,106 @@
 <section class="login-register-container">
     <div class="options">
-        <div class="options__login" opction-selected="true" [class.selected]='"login"==optionSelected'
-            (click)='onOptionClick("login")'>
+        <div class="options__login" opction-selected="true" [class.selected]="'login' == optionSelected"
+            (click)="onOptionClick('login')">
             <h1 class="options__title">INICIAR SESIÓN</h1>
         </div>
-        <div class="options__register" opction-selected="false" [class.selected]='"register"==optionSelected'
-            (click)='onOptionClick("register")'>
+        <div class="options__register" opction-selected="false" [class.selected]="'register' == optionSelected"
+            (click)="onOptionClick('register')">
             <h1 class="options__title">REGISTRARSE</h1>
         </div>
     </div>
 
     <div class="form-container">
-        <!-- TODO: Añadir funcionalidad al form -->
-        <form id="login-form" class="form" action="#" [class.hide]='"login"!=optionSelected'>
+        <!-- FORMULARIO INICIO DE SESIÓN -->
+        <form id="login-form" class="form" action="" (ngSubmit)="submitLogin()" *ngIf="'login' == optionSelected">
             <div class="form__input-container">
                 <div class="input-field">
-                    <label class="input-field__label" for="login-email">Email</label>
-                    <input class="input-field__input" type="email" id="login-email" name="email-input"
-                        placeholder="ejemplo@ejemplo.com" required>
+                    <label class="input-field__label" for="login-email">Usuario</label>
+                    <input [(ngModel)]="user.username" class="input-field__input" type="text" id="login-username"
+                        name="username" placeholder="usuario" required />
                 </div>
                 <div class="input-field">
                     <label class="input-field__label" for="password">Contraseña</label>
-                    <input class="input-field__input" type="password" id="password" placeholder="Ingrese su contraseña"
-                        name="password" required>
+                    <input [(ngModel)]="user.password" class="input-field__input" type="password" id="login-password"
+                        placeholder="Ingrese su contraseña" name="password" required />
                 </div>
             </div>
-            <button class="form__submit-button" id="submit" type="submit">
-                <img src="./assets/login-form-icon.svg" alt="login icon">
+            <button class="form__submit-button" id="login-submit" type="submit">
+                <img src="./assets/login-form-icon.svg" alt="login icon" />
                 Iniciar Sesión
             </button>
         </form>
 
-        <!-- TODO: Añadir funcionalidad al form -->
-        <form id="register-form" class="form" action="#" [class.hide]='"register"!=optionSelected'>
+        <!-- FORMULARIO DE REGISTRO -->
+        <form id="register-form" #registerform="ngForm" class="form" (ngSubmit)="submitRegister()"
+            *ngIf="'register' == optionSelected">
             <div class="form__input-container">
                 <div class="input-field">
-                    <label class="input-field__label" for="name">Nombre</label>
-                    <input class="input-field__input" id="name" type="text" placeholder="Ej: Felipe" required>
+                    <label class="input-field__label" for="nombreCompleto">Nombre</label>
+                    <input #nameRegister="ngModel" [(ngModel)]="cliente.nombreCompleto" class="input-field__input"
+                        id="nombreCompleto" name="nombreCompleto" type="text" placeholder="Ej: Felipe"
+                        pattern="^[a-zA-Z0-9_-]{1,30}$" required />
+                    <div *ngIf="!nameRegister.valid && nameRegister.touched" class="input-field__warning">
+                        Debe llenar el campo correctamente
+                    </div>
                 </div>
                 <div class="input-field">
-                    <label class="input-field__label" for="last-names">Apellidos</label>
-                    <input class="input-field__input" id="last-names" type="text" placeholder="Ej: Gomez" required>
+                    <label class="input-field__label" for="apellido">Apellidos</label>
+                    <input #lastNameRegister="ngModel" [(ngModel)]="cliente.apellido" class="input-field__input"
+                        id="apellido" name="apellido" type="text" placeholder="Ej: Gomez" required />
+                    <div *ngIf="!lastNameRegister.valid && lastNameRegister.touched" class="input-field__warning">
+                        Debe llenar el campo correctamente
+                    </div>
                 </div>
                 <div class="input-field">
-                    <label class="input-field__label" for="register-email">Email</label>
-                    <input class="input-field__input" id="register-email" type="email"
-                        placeholder="Ej: ejemplo@ejemplo.com" required>
+                    <label class="input-field__label" for="email">Email</label>
+                    <input #emailRegister="ngModel" [(ngModel)]="cliente.email" class="input-field__input" id="email"
+                        name="email" type="email" placeholder="Ej: ejemplo@ejemplo.com"
+                        pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]{1,}$" required />
+                    <div *ngIf="!emailRegister.valid && emailRegister.touched" class="input-field__warning">
+                        Escriba una dirección de email válida
+                    </div>
                 </div>
                 <div class="input-field">
-                    <label class="input-field__label" for="register-password">Contraseña</label>
-                    <input class="input-field__input" id="register-password" type="password"
-                        placeholder="Ingrese una contraseña" required>
+                    <label class="input-field__label" for="password">Contraseña</label>
+                    <input #passwordRegister="ngModel" [(ngModel)]="cliente.password" class="input-field__input"
+                        id="password-register" name="password" type="password" placeholder="Ingrese una contraseña"
+                        required />
+                    <div *ngIf="!passwordRegister.valid && passwordRegister.touched" class="input-field__warning">
+                        Escriba una contraseña válida
+                    </div>
                 </div>
                 <div class="input-field">
                     <label class="input-field__label" for="dni">DNI</label>
-                    <input class="input-field__input" id="dni" type="text" pattern="[0-9]+"
-                        placeholder="Ingrese su dni" required>
+                    <input #dniRegister="ngModel" [(ngModel)]="cliente.dni" class="input-field__input" id="dni"
+                        name="dni" type="text" pattern="[0-9]{8}" placeholder="Ingrese su dni" required />
+                    <div *ngIf="!dniRegister.valid && dniRegister.touched" class="input-field__warning">
+                        El número de dni debe tener 8 dígitos
+                    </div>
                 </div>
                 <div class="input-field">
-                    <label class="input-field__label" for="phone-number">Teléfono</label>
-                    <input class="input-field__input" id="phone-number" type="text" pattern="[0-9]{9}"
-                        placeholder="Ingrese su número de teléfono" required>
+                    <label class="input-field__label" for="telefono">Teléfono</label>
+                    <input #phoneNumberRegister="ngModel" [(ngModel)]="cliente.telefono" class="input-field__input"
+                        id="telefono" name="telefono" type="text" pattern="[0-9]{9}"
+                        placeholder="Ingrese su número de teléfono" required />
+                    <div *ngIf="!phoneNumberRegister.valid && phoneNumberRegister.touched"
+                        class="input-field__warning">
+                        El número de teléfono debe tener 9 dígitos
+                    </div>
+                </div>
+                <div class="input-field">
+                    <label class="input-field__label" for="direccion">Direccion</label>
+                    <input #addressRegister="ngModel" [(ngModel)]="cliente.direccion" class="input-field__input"
+                        id="direccion" name="direccion" type="text" placeholder="Ingrese su número direccion"
+                        required />
+                    <div *ngIf="!addressRegister.valid && addressRegister.touched" class="input-field__warning">
+                        Debe llenar el campo correctamente
+                    </div>
                 </div>
             </div>
-            <button class="form__submit-button" id="submit" type="submit">
-                <img src="./assets/register-form-icon.svg" alt="login icon">
+            <button class="form__submit-button" [disabled]="!registerform.form.valid"
+                [class.button--disabled]="!registerform.form.valid" id="register-submit" type="submit">
+                <img src="./assets/register-form-icon.svg" alt="login icon" />
                 Registrarse
             </button>
         </form>

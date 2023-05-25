@@ -15,20 +15,20 @@
             <!-- <img src="./assets/search-glass.svg" alt=""> -->
         </div>
         <ul class="main-navbar__linkslist">
-            <li class="main-navbar__linkslist__item">
+            <li class="main-navbar__linkslist__item" *ngIf="!loginService.isLogged()">
                 <a routerLink="/login-register">
                     <img src="./assets/login.svg" alt="">
                     <p>Iniciar Sesión</p>
                 </a>
             </li>
-            <li class="main-navbar__linkslist__item">
+            <li class="main-navbar__linkslist__item" *ngIf="loginService.isLogged()">
                 <a href="#">
                     <img src="./assets/purchases.svg" alt="">
                     <p>Mis compras</p>
                 </a>
             </li>
-            <li class="main-navbar__linkslist__item">
-                <a href="3">
+            <li class="main-navbar__linkslist__item" *ngIf="loginService.isLogged()">
+                <a href="#">
                     <img src="./assets/minicart.svg" alt="">
                     <p>Carrito</p>
                 </a>
