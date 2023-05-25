@@ -15,60 +15,60 @@ import Swal from 'sweetalert2';
 export class LoginBodyComponent {
   optionSelected?: string;
 
-  constructor(private serviceRegistro:RegistroService,private router:Router,private loginService:LoginService) {
+  constructor(private serviceRegistro: RegistroService, private router: Router, private loginService: LoginService) {
     this.optionSelected = "login";
   }
 
   onOptionClick(option: string) {
-    this.optionSelected = option; 
+    this.optionSelected = option;
   }
 
-  cliente:Cliente={
-    idCliente:0,
-    nombreCompleto:"",
-    apellido:"",
-    telefono:"",
-    dni:"",
-    email:"",
-    direccion:"",
-    password:"",
+  cliente: Cliente = {
+    idCliente: 0,
+    nombreCompleto: "",
+    apellido: "",
+    telefono: "",
+    dni: "",
+    email: "",
+    direccion: "",
+    password: "",
   };
 
-  registrarse(){
-    this.serviceRegistro.registrarCliente(this.cliente).subscribe(data =>{
-      this.router.navigate(['home']);
-    },(error)=>{
+  registrarse() {
+    this.serviceRegistro.registerClient(this.cliente).subscribe(
+      data => { this.router.navigate(['home']); }
+      , (error) => {
       console.log(error)
     })
-    Swal.fire("REGISTRO EXITOSO","REGISTRO EXITOSO","success")
+    Swal.fire("REGISTRO EXITOSO", "REGISTRO EXITOSO", "success")
   }
 
   //PARA EL LOGIN
 
-  user:User={
-    username:'',
-    password:'',
+  user: User = {
+    username: '',
+    password: '',
   };
 
 
-  login(){
-    this.loginService.generateToken(this.user).subscribe((data:any) =>{
+  login() {
+    this.loginService.generateToken(this.user).subscribe((data: any) => {
       this.loginService.loginUser(data.token) //POR EL CONTENIDO QUE ME DA LA RESPUESTA EN MI BACK
       console.log(data.token);
-      this.loginService.getActualCliente().subscribe((cliente:any)=>{
+      this.loginService.getCurrentClient().subscribe((cliente: any) => {
         this.loginService.setClient(cliente);
         console.log(cliente);
       })
       //alert("INGRESO COMPLETO")
-      Swal.fire("LOGIN EXITOSO","LOGIN EXITOSO","success")
+      Swal.fire("LOGIN EXITOSO", "LOGIN EXITOSO", "success")
       this.router.navigate(['home']);
-      
-      
-    },(error) =>{
+
+
+    }, (error) => {
       alert("ERROR AL INGRESAR")
       console.log(error)
     })
-    
+
   }
 
 

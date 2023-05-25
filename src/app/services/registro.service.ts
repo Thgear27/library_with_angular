@@ -11,7 +11,7 @@ export class RegistroService {
 
   constructor(private http:HttpClient) { }
 
-  registrarCliente(cliente:Cliente){
+  registerClient(cliente:Cliente){
     return this.http.post(this.url,cliente);
   }
 }
