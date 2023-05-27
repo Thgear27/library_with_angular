@@ -13,33 +13,40 @@ export class LoginService {
   private url = "http://localhost:8080/login";
 
 
-  //Primero vamos a hacer que se genere el token
   generateToken(user: User) {
     return this.http.post(this.url, user);
   }
 
-  //vamos a logear al usuario
   loginUser(token: any) {
     localStorage.setItem('token', token);
     return true;
   }
 
-  //para traer el token
   getToken() {
     return localStorage.getItem('token');
   }
 
-  //para traer el usuario logueado y devuelve un tipo cliente
   getCurrentClient() {
     return this.http.get<Cliente>("http://localhost:8080/login/clienteLogeado");
   }
 
-  //para guardar el cliente en el localStorage
+
+  /**
+   * Para guardar el cliente en el localStorage
+   */
   setClient(cliente: any) {
     localStorage.setItem("cliente", JSON.stringify(cliente));
   }
 
   isLogged() {
     return this.getToken() != null; // false: no está logeado, true: sí está logeado
+  }
+
+  /**
+   * Cierra la sesión, remueve "token" y "cliente" del localstorage
+   */
+  logOut() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("cliente");
   }
 }
