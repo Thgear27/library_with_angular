@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar',
@@ -8,8 +9,12 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class NavbarComponent {
 
-  constructor(public loginService:LoginService){
-    
+  constructor(public loginService: LoginService) {
+
   }
 
+  logOutButton() {
+    this.loginService.logOut(); 
+    Swal.fire("Sesión cerrada", "Usted ha cerrado la sesión correctamente", "success");
+  }
 }

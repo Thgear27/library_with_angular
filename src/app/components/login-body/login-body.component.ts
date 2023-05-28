@@ -70,7 +70,6 @@ export class LoginBodyComponent {
           this.loginService.setClient(cliente);
           console.log(cliente);
         })
-        //alert("INGRESO COMPLETO")
         Swal.fire("Inicio de sesión", "Usted ha iniciado sesión correctamente", "success")
         this.router.navigate(['home']);
 

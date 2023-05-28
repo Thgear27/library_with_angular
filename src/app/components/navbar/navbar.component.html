@@ -17,21 +17,27 @@
         <ul class="main-navbar__linkslist">
             <li class="main-navbar__linkslist__item" *ngIf="!loginService.isLogged()">
                 <a routerLink="/login-register">
-                    <img src="./assets/login.svg" alt="">
+                    <img src="./assets/login.svg" alt="icon">
                     <p>Iniciar Sesión</p>
                 </a>
             </li>
             <li class="main-navbar__linkslist__item" *ngIf="loginService.isLogged()">
                 <a href="#">
-                    <img src="./assets/purchases.svg" alt="">
+                    <img src="./assets/purchases.svg" alt="icon">
                     <p>Mis compras</p>
                 </a>
             </li>
             <li class="main-navbar__linkslist__item" *ngIf="loginService.isLogged()">
                 <a href="#">
-                    <img src="./assets/minicart.svg" alt="">
+                    <img src="./assets/minicart.svg" alt="icon">
                     <p>Carrito</p>
                 </a>
+            </li>
+            <li class="main-navbar__linkslist__item" (click)="logOutButton()" *ngIf="loginService.isLogged()">
+                <button>
+                    <img src="./assets/login.svg" alt="icon">
+                    <p>Cerrar sesión</p>
+                </button>
             </li>
         </ul>
     </div>

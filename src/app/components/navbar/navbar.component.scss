@@ -50,11 +50,12 @@ $main-color: #24292E;
         gap: 30px;
         height: 40px;
 
-        &__item a {
+        &__item a, &__item button {
             display: flex;
             align-items: center;
             height: 100%;
             gap: 5px;
+            font-size: 1rem;
         }
     }
 }
