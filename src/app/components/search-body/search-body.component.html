@@ -3,10 +3,10 @@
     <div class="search__main">
         <div class="search__left">
             <form class="filters">
-                <h4 class="filters__title">Filtros</h4>
+                <h3 class="filters__title">Filtros</h3>
                 <ul class="filters__list">
                     <div class="filter filter--dropdown">
-                        <p class="filter__name">Categoria</p>
+                        <p class="filter__name">Categoría</p>
                         <ul class="filter__options-list">
                             <li class="filter__option">
                                 <label class="filter__option-name">Terror</label>
@@ -20,7 +20,7 @@
                     </div>
                     <div class="filter filter--input">
                         <p class="filter__name">Autor</p>
-                        <input type="text" placeholder="Ingrese el nombre">
+                        <input class="filter__input-text" type="text" placeholder="Ingrese el nombre">
                     </div>
                     <div class="filter filter--dropdown">
                         <p class="filter__name">Editorial</p>
@@ -40,7 +40,6 @@
             </form>
         </div>
         <div class="search__right">
-            <!-- TODO: Hacer un componentes de books-grid para evitar tener el mismo código en search-body y hombe-boy -->
             <app-books-grid [libros]="libros" [gridConfig]="booksGridConfig"></app-books-grid>
         </div>
     </div>

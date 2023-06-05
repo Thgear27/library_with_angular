@@ -1,5 +1,4 @@
 .search {
-    outline: 2px solid rgb(0, 128, 0, 0.4);
     padding-top: 1.25rem;
 
     .search__main {
@@ -7,98 +6,69 @@
     }
 
     &__right {
-        outline: 2px solid rebeccapurple;
         width: 100%;
     }
 
     &__left {
-        padding: 0.625rem;
-        padding-right: 1.875rem;
-        outline: 2px solid red;
+        width: 40%;
+
+        padding: 0 0.625rem;
     }
 }
 
-.books-grid {
-    display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-    grid-template-columns: repeat(3, 1fr);
-
-    img {
-        width: 100%;
-    }
-
-    &__item {
-        width: 100%;
-        // outline: 2px solid black;
-        padding: 30px;
-    }
-
-    &__info-container {
-        text-align: center;
-
-        &__title {
-            font-style: normal;
-            font-weight: 400;
-            font-size: 1.5rem;
-            line-height: 2.5rem;
-            margin-top: 1.25rem;
-        }
-
-        &__author {
-            font-style: normal;
-            font-weight: 400;
-            font-size: 1rem;
-            line-height: 2.5rem;
-        }
-
-        &__price {
-            font-style: normal;
-            font-weight: 400;
-            font-size: 1.5rem;
-            line-height: 2.5rem;
-        }
-    }
-
-    &__image-container {
-        position: relative;
-        padding-bottom: 135%;
-        box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.25);
-
-        img {
-            position: absolute;
-            inset: 0;
-            height: 100%;
-        }
-    }
-}
-
-.disabled {
-    pointer-events: none;
-}
-
-.pagination-buttons {
-    margin-bottom: 30px;
-
+.filters {
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    flex-direction: column;
 
-    &__previous {
-        rotate: 180deg;
+    &__title {
+        text-align: center;
+        padding: 10px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__button {
+        padding: 10px 50px;
+        margin: 10px auto;
     }
 }
 
-.pagination-button {
-    display: inline-block;
-    outline: 1px solid #AAAAAA;
-    padding: 15px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-}
+.filter {
+    outline: 2px solid #1a1d1f3f;
+    border-radius: 8px;
 
-.pagination-button--current {
-    display: inline-block;
-    color: white;
-    background-color: #2A2C31;
-    cursor: auto;
+    &__name {
+        padding: 10px;
+        background-color: #1A1D1F;
+        color: white;
+        border-radius: 8px;
+    }
+
+    &__options-list {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+    }
+
+    &__input-text {
+        padding: 5px;
+        margin: 10px 0;
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    &__option {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__option-check {
+        width: 30px;
+    }
 }
