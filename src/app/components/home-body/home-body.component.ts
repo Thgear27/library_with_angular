@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination';
+import { BooksGridConfiguration } from 'src/app/classes/books-grid-configuration';
 import { Libro } from 'src/app/models/libro';
 import { LibrosService } from 'src/app/services/libros.service';
 import { LoginService } from 'src/app/services/login.service';
@@ -17,7 +18,11 @@ export class HomeBodyComponent implements OnInit {
   libros: Libro[] = [];
   public page!: number;
 
-  constructor(private libroService: LibrosService,public loginService:LoginService) {
+  booksGridConfig: BooksGridConfiguration = {
+    columnsNumber: 4
+  };
+
+  constructor(private libroService: LibrosService, public loginService:LoginService) {
 
   }
 

@@ -6,8 +6,8 @@ import { SearchComponent } from './views/search/search.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  // { path: 'home', component: HomeComponent },
-  { path: 'home', component: SearchComponent}, // solo para debug, usar la linea de arribe en su lugar
+  { path: 'home', component: HomeComponent },
+  { path: 'search', component: SearchComponent}, 
   { path: 'login-register', component: LoginRegisterComponent },
 ];
 
