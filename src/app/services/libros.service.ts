@@ -15,9 +15,10 @@ export class LibrosService {
     return this.http.get<Libro[]>(this.url);
   }
 
-  // getBookById(): Observable<Libro> {
-
-  // }
+  getBookById(bookId: number): Observable<Libro> {
+    let urlRequest: string = `http://localhost:8080/api/libros/buscar?id=${bookId}`;
+    return this.http.get<Libro>(urlRequest);
+  }
 
   getBooksByFilter(
     tipo: string,
@@ -26,8 +27,7 @@ export class LibrosService {
     titulo: string
   ): Observable<Libro[]> {
     let urlRequest: string = `http://localhost:8080/api/libros/filtros?tipo=${tipo}&autor=${autor}&editorial=${editorial}&titulo=${titulo}`;
-  
-    console.log(urlRequest);
+
     return this.http.get<Libro[]>(urlRequest);
   }
 }
