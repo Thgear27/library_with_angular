@@ -15,6 +15,10 @@ export class LibrosService {
     return this.http.get<Libro[]>(this.url);
   }
 
+  // getBookById(): Observable<Libro> {
+
+  // }
+
   getBooksByFilter(
     tipo: string,
     autor: string,

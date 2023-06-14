@@ -17,6 +17,8 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
 import { SearchBodyComponent } from './components/search-body/search-body.component';
 import { SearchComponent } from './views/search/search.component';
 import { BooksGridComponent } from './components/books-grid/books-grid.component';
+import { DetailsBodyComponent } from './components/details-body/details-body.component';
+import { DetailsComponent } from './views/details/details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { BooksGridComponent } from './components/books-grid/books-grid.component
     LoginRegisterComponent,
     SearchBodyComponent,
     SearchComponent,
-    BooksGridComponent
+    BooksGridComponent,
+    DetailsBodyComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
