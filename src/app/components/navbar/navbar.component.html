@@ -6,7 +6,9 @@
             </a>
         </div>
         <div class="main-navbar__input-container">
-            <input class="main-navbar__input-container__input" type="text" placeholder="Buscar">
+            <form action="" (ngSubmit)="onSearch()">
+                <input class="main-navbar__input-container__input" [(ngModel)]="searchInput" type="text" placeholder="Buscar" [ngModelOptions]="{standalone: true}">
+            </form>
             <svg xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <path

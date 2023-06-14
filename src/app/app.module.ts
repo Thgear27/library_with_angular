@@ -14,6 +14,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './helpers/auth.interceptor';
+import { SearchBodyComponent } from './components/search-body/search-body.component';
+import { SearchComponent } from './views/search/search.component';
+import { BooksGridComponent } from './components/books-grid/books-grid.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
     NavbarOnlyLogoComponent,
     LoginBodyComponent,
     HomeComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    SearchBodyComponent,
+    SearchComponent,
+    BooksGridComponent
   ],
   imports: [
     BrowserModule,
