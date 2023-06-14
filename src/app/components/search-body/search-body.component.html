@@ -81,9 +81,19 @@
     </div>
     <div class="search__right">
       <app-books-grid
+        *ngIf="libros.length != 0"
         [libros]="libros"
         [gridConfig]="booksGridConfig"
       ></app-books-grid>
+      <div class="notfound" *ngIf="libros.length == 0">
+        <h1 class="notfound__title">
+          Lo sentimos, no se encontraron libros que coincidan con los filtros
+          seleccionados.
+        </h1>
+        <p class="notfound__text">
+          Por favor, intenta nuevamente con diferentes criterios de búsqueda
+        </p>
+      </div>
     </div>
   </div>
 </div>

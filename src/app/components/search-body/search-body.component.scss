@@ -76,3 +76,16 @@
         width: 30px;
     }
 }
+
+.notfound {
+    padding: 5.25rem;
+    text-align: center;
+
+    &__title {
+        line-height: 1;
+    }
+
+    &__text {
+        margin-top: 20px;
+    }
+}

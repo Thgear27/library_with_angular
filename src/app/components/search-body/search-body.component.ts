@@ -52,13 +52,18 @@ export class SearchBodyComponent implements OnInit {
       let paramCategoria = urlCodec.encodeValue(this.categoriaSelected);
       let paramAutor = urlCodec.encodeValue(this.autorSelected);
       let paramEditorial = urlCodec.encodeValue(this.editorialSelected);
-      
+
       console.log(paramCategoria);
       console.log(paramAutor);
       console.log(paramEditorial);
 
       this.libroService
-        .getBooksByFilter(paramCategoria, paramAutor, paramEditorial, this.searchService.getSharedBookName())
+        .getBooksByFilter(
+          paramCategoria,
+          paramAutor,
+          paramEditorial,
+          this.searchService.getSharedBookName()
+        )
         .subscribe((data) => {
           this.libros = data;
         });
