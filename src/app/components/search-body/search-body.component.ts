@@ -13,7 +13,9 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class SearchBodyComponent implements OnInit {
   libros: Libro[] = [];
-  public editorialesFetched: any[] = [];
+  public editorialesFetched: Object[] = [];
+  public arrEditoriales: any;
+  public arrCategorias: any;
 
   public page!: number;
 
@@ -30,9 +32,14 @@ export class SearchBodyComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.searchService.getSharedBookName());
 
-    // this.searchService.getAllEditoriales().subscribe((data) => {
-    //   console.log(data);
-    // });
+    this.searchService.getAllEditoriales().subscribe((data) => {
+      this.arrEditoriales = data;
+    });
+
+    this.searchService.getAllCategorias().subscribe((data) => {
+      this.arrCategorias = data;
+      console.log(this.arrCategorias);
+    });
 
     this.libroService
       .getBooksByFilter('', '', '', this.searchService.getSharedBookName())
@@ -47,6 +54,10 @@ export class SearchBodyComponent implements OnInit {
           this.libros = data;
         });
     });
+  }
+
+  applyFilters() {
+    // Guardar variables  
   }
 
   public config: PaginationInstance = {

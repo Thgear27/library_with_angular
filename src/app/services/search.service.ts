@@ -26,9 +26,11 @@ export class SearchService {
     this.sharedBookName = bookName;
   }
 
-  // getAllEditoriales() : Observable<Object[]> {
-  //   return this.http.get<Object[]>(this.urlRequestEditoriales);
-  // }
+  getAllEditoriales(): Observable<any> {
+    return this.http.get<any>(this.urlRequestEditoriales);
+  }
 
-  //...
+  getAllCategorias(): Observable<any> {
+    return this.http.get<any>(this.urlRequestTipos);
+  }
 }
