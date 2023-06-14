@@ -8,5 +8,7 @@ export class Libro {
     imagen!:string;
     añoPublicacion!:string;
     cantidad!:number;
-    precio!:number
+    precio!:number;
+    autor!:string;
+    descripcion!:string
 }
