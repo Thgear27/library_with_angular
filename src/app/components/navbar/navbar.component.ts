@@ -7,18 +7,26 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
   public searchInput: string;
 
-  constructor(public loginService: LoginService, public searchService: SearchService, private router: Router) {
-    this.searchInput = "";
+  constructor(
+    public loginService: LoginService,
+    public searchService: SearchService,
+    private router: Router
+  ) {
+    this.searchInput = '';
   }
 
   logOutButton() {
     this.loginService.logOut();
-    Swal.fire("Sesión cerrada", "Usted ha cerrado la sesión correctamente", "success");
+    Swal.fire(
+      'Sesión cerrada',
+      'Usted ha cerrado la sesión correctamente',
+      'success'
+    );
   }
 
   onSearch() {
