@@ -1,5 +1,5 @@
 <div class="container search">
-    <h1 class="search__title">Búsqueda: EL Principito</h1>
+    <h1 class="search__title">Búsqueda: {{searchService.getSharedBookName()}} </h1>
     <div class="search__main">
         <div class="search__left">
             <form class="filters">
@@ -24,11 +24,17 @@
                     </div>
                     <div class="filter filter--dropdown">
                         <p class="filter__name">Editorial</p>
-                        <ul class="filter__options-list">
+                        <!-- <ul class="filter__options-list">
                             <li class="filter__option">
                                 <label class="filter__option-name">Editorial 1</label>
                                 <input class="filter__option-check" type="checkbox" id="editorial-1">
                             </li>
+                            <li class="filter__option">
+                                <label class="filter__option-name">Editorial 2</label>
+                                <input class="filter__option-check" type="checkbox" id="editorial-2">
+                            </li>
+                        </ul> -->
+                        <ul class="filter__options-list">
                             <li class="filter__option">
                                 <label class="filter__option-name">Editorial 2</label>
                                 <input class="filter__option-check" type="checkbox" id="editorial-2">
