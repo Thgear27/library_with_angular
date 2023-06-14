@@ -1,46 +1,89 @@
 <div class="container search">
-    <h1 class="search__title">Búsqueda: {{searchService.getSharedBookName()}} </h1>
-    <div class="search__main">
-        <div class="search__left">
-            <form class="filters" (ngSubmit)="applyFilters()">
-                <h3 class="filters__title">Filtros</h3>
-                <ul class="filters__list">
-                    <div class="filter filter--dropdown">
-                        <p class="filter__name">Categoría</p>
-                        <ul class="filter__options-list">
-                            <li class="filter__option" *ngFor="let categoria of arrCategorias">
-                                <label [for]="categoria.idTipo + 'tipo'" class="filter__option-name">{{categoria.tipo}}</label>
-                                <input class="filter__option-check" type="checkbox" [id]="categoria.idTipo + 'tipo'">
-                            </li>
-                            <!-- <li class="filter__option">
+  <h1 class="search__title">
+    Búsqueda: {{ searchService.getSharedBookName() }}
+  </h1>
+  <div class="search__main">
+    <div class="search__left">
+      <form class="filters" (ngSubmit)="applyFilters()">
+        <h3 class="filters__title">Filtros</h3>
+        <ul class="filters__list">
+          <div class="filter filter--dropdown">
+            <p class="filter__name">Categoría</p>
+            <ul class="filter__options-list">
+              <li
+                class="filter__option"
+                *ngFor="let categoria of arrCategorias"
+              >
+                <label
+                  [for]="categoria.idTipo + 'tipo'"
+                  class="filter__option-name"
+                  >{{ categoria.tipo }}</label
+                >
+                <input
+                  [(ngModel)]="categoriaSelected"
+                  [value]="categoria.tipo"
+                  class="filter__option-check"
+                  name="categoriaRadio"
+                  type="radio"
+                  [id]="categoria.idTipo + 'tipo'"
+                />
+              </li>
+              <!-- <li class="filter__option">
                                 <label class="filter__option-name">Acción</label>
                                 <input class="filter__option-check" type="checkbox" id="categoria-accion">
                             </li> -->
-                        </ul>
-                    </div>
-                    <div class="filter filter--input">
-                        <p class="filter__name">Autor</p>
-                        <input class="filter__input-text" type="text" placeholder="Ingrese el nombre">
-                    </div>
-                    <div class="filter filter--dropdown">
-                        <p class="filter__name">Editorial</p>
-                        <ul class="filter__options-list">
-                            <li class="filter__option" *ngFor="let editorial of arrEditoriales">
-                                <label [for]="editorial.idEditorial + 'editorial'" class="filter__option-name">{{editorial.nombre}}</label>
-                                <input class="filter__option-check" type="checkbox" [id]="editorial.idEditorial + 'editorial'">
-                            </li>
-                            <!-- <li class="filter__option">
+            </ul>
+          </div>
+          <div class="filter filter--input">
+            <p class="filter__name">Autor</p>
+            <div class="filter__input-container">
+              <input
+                [(ngModel)]="autorSelected"
+                name="authorName"
+                class="filter__input-text"
+                type="text"
+                placeholder="Ingrese el nombre"
+              />
+            </div>
+          </div>
+          <div class="filter filter--dropdown">
+            <p class="filter__name">Editorial</p>
+            <ul class="filter__options-list">
+              <li
+                class="filter__option"
+                *ngFor="let editorial of arrEditoriales"
+              >
+                <label
+                  [for]="editorial.idEditorial + 'editorial'"
+                  class="filter__option-name"
+                  >{{ editorial.nombre }}</label
+                >
+                <input
+                  [(ngModel)]="editorialSelected"
+                  [value]="editorial.nombre"
+                  class="filter__option-check"
+                  name="editorialRadio"
+                  type="radio"
+                  [id]="editorial.idEditorial + 'editorial'"
+                />
+              </li>
+              <!-- <li class="filter__option">
                                 <label class="filter__option-name">Editorial 2</label>
                                 <input class="filter__option-check" type="checkbox" id="editorial-2">
                             </li> -->
-                        </ul>
-                    </div>
-                </ul>
-                <button class="filters__button" type="submit" id="filters-submit">Aplicar</button>
-            </form>
-        </div>
-        <div class="search__right">
-            <app-books-grid [libros]="libros" [gridConfig]="booksGridConfig"></app-books-grid>
-        </div>
+            </ul>
+          </div>
+        </ul>
+        <button class="filters__button" type="submit" id="filters-submit">
+          Aplicar
+        </button>
+      </form>
     </div>
+    <div class="search__right">
+      <app-books-grid
+        [libros]="libros"
+        [gridConfig]="booksGridConfig"
+      ></app-books-grid>
+    </div>
+  </div>
 </div>

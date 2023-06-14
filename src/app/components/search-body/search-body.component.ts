@@ -1,3 +1,4 @@
+import { HttpUrlEncodingCodec } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination';
 import { BooksGridConfiguration } from 'src/app/classes/books-grid-configuration';
@@ -19,6 +20,10 @@ export class SearchBodyComponent implements OnInit {
 
   public page!: number;
 
+  public categoriaSelected: string;
+  public autorSelected: string;
+  public editorialSelected: string;
+
   booksGridConfig: BooksGridConfiguration = {
     columnsNumber: 3,
   };
@@ -27,37 +32,43 @@ export class SearchBodyComponent implements OnInit {
     private libroService: LibrosService,
     public loginService: LoginService,
     public searchService: SearchService
-  ) {}
+  ) {
+    this.categoriaSelected = '';
+    this.autorSelected = '';
+    this.editorialSelected = '';
+  }
 
   ngOnInit(): void {
-    console.log(this.searchService.getSharedBookName());
-
     this.searchService.getAllEditoriales().subscribe((data) => {
       this.arrEditoriales = data;
     });
 
     this.searchService.getAllCategorias().subscribe((data) => {
       this.arrCategorias = data;
-      console.log(this.arrCategorias);
     });
 
-    this.libroService
-      .getBooksByFilter('', '', '', this.searchService.getSharedBookName())
-      .subscribe((data) => {
-        this.libros = data;
-      });
-
     this.searchService.doSearchSubject.subscribe(() => {
+      let urlCodec = new HttpUrlEncodingCodec();
+      let paramCategoria = urlCodec.encodeValue(this.categoriaSelected);
+      let paramAutor = urlCodec.encodeValue(this.autorSelected);
+      let paramEditorial = urlCodec.encodeValue(this.editorialSelected);
+      
+      console.log(paramCategoria);
+      console.log(paramAutor);
+      console.log(paramEditorial);
+
       this.libroService
-        .getBooksByFilter('', '', '', this.searchService.getSharedBookName())
+        .getBooksByFilter(paramCategoria, paramAutor, paramEditorial, this.searchService.getSharedBookName())
         .subscribe((data) => {
           this.libros = data;
         });
     });
+
+    this.searchService.doSearchSubject.next(true);
   }
 
   applyFilters() {
-    // Guardar variables  
+    this.searchService.doSearchSubject.next(true);
   }
 
   public config: PaginationInstance = {

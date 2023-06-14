@@ -41,6 +41,10 @@
     outline: 2px solid #1a1d1f3f;
     border-radius: 8px;
 
+    &__input-container {
+        padding: 10px;
+    }
+
     &__name {
         padding: 10px;
         background-color: #1A1D1F;
