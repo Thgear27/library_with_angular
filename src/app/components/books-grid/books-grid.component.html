@@ -1,6 +1,6 @@
 <div class="books-grid" [ngClass]="'books-grid--' + gridConfig?.columnsNumber + 'columns'">
     <div class="books-grid__item" *ngFor="let lib of libros! | paginate: config">
-        <a href="#">
+        <a [href]="'booksdetails/' + lib.idLibro">
             <div class="books-grid__info-container">
                 <div class="books-grid__image-container">
                     <img [src]="lib.imagen" alt="Portada del libro">
