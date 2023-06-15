@@ -23,6 +23,7 @@ export class SearchBodyComponent implements OnInit {
   public categoriaSelected: string;
   public autorSelected: string;
   public editorialSelected: string;
+  public tituloSelected: string;
 
   booksGridConfig: BooksGridConfiguration = {
     columnsNumber: 3,
@@ -36,6 +37,7 @@ export class SearchBodyComponent implements OnInit {
     this.categoriaSelected = '';
     this.autorSelected = '';
     this.editorialSelected = '';
+    this.tituloSelected = '';
   }
 
   ngOnInit(): void {
@@ -47,11 +49,15 @@ export class SearchBodyComponent implements OnInit {
       this.arrCategorias = data;
     });
 
-    this.searchService.doSearchSubject.subscribe(() => {
+    this.searchService.doSearchSubject.subscribe((fromNav) => {
       let urlCodec = new HttpUrlEncodingCodec();
       let paramCategoria = urlCodec.encodeValue(this.categoriaSelected);
       let paramAutor = urlCodec.encodeValue(this.autorSelected);
       let paramEditorial = urlCodec.encodeValue(this.editorialSelected);
+
+      if (!fromNav) {
+        this.searchService.setSharedBookName(this.tituloSelected);
+      }
 
       console.log(paramCategoria);
       console.log(paramAutor);
@@ -69,11 +75,11 @@ export class SearchBodyComponent implements OnInit {
         });
     });
 
-    this.searchService.doSearchSubject.next(true);
+    this.searchService.doSearchSubject.next(false);
   }
 
   applyFilters() {
-    this.searchService.doSearchSubject.next(true);
+    this.searchService.doSearchSubject.next(false);
   }
 
   public config: PaginationInstance = {
