@@ -8,6 +8,7 @@ $color-selected: #009989;
 
 .options {
     display: flex;
+    cursor: pointer;
 
     &__login {
         width: 100%;
