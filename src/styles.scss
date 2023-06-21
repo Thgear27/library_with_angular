@@ -63,3 +63,13 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+.animated-hover {
+    transition: all 0.1s ease;
+    position: relative;
+    bottom: 0;
+}
+
+.animated-hover:hover {
+    bottom: 2px;
+}

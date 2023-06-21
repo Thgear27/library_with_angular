@@ -75,7 +75,7 @@ export class SearchBodyComponent implements OnInit {
         });
     });
 
-    this.searchService.doSearchSubject.next(false);
+    this.searchService.doSearchSubject.next(true);
   }
 
   applyFilters() {
