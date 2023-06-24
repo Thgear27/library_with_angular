@@ -75,8 +75,12 @@ export class LoginBodyComponent {
 
       },
       error: (error) => {
-        alert("ERROR AL INGRESAR")
-        console.log(error)
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          confirmButtonColor: "#2A2C31",
+          text: 'Algo ha salido mal',
+        })
       }
     });
   }

@@ -28,6 +28,7 @@ export class LibrosService {
   ): Observable<Libro[]> {
     let urlRequest: string = `http://localhost:8080/api/libros/filtros?tipo=${tipo}&autor=${autor}&editorial=${editorial}&titulo=${titulo}`;
 
+    console.log(urlRequest);
     return this.http.get<Libro[]>(urlRequest);
   }
 }

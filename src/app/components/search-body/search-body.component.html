@@ -35,6 +35,18 @@
             </ul>
           </div>
           <div class="filter filter--input">
+            <p class="filter__name">Título</p>
+            <div class="filter__input-container">
+              <input
+                [(ngModel)]="tituloSelected"
+                name="authorName"
+                class="filter__input-text"
+                type="text"
+                placeholder="Ingrese el nombre"
+              />
+            </div>
+          </div>
+          <div class="filter filter--input">
             <p class="filter__name">Autor</p>
             <div class="filter__input-container">
               <input
@@ -74,7 +86,7 @@
             </ul>
           </div>
         </ul>
-        <button class="filters__button" type="submit" id="filters-submit">
+        <button class="filters__button animated-hover" type="submit" id="filters-submit">
           Aplicar
         </button>
       </form>

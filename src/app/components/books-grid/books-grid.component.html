@@ -13,8 +13,7 @@
     </div>
 
     <!-- Ejemplo de item -->
-    <!--
-        <div class="books-grid__item">
+        <!-- <div class="books-grid__item">
             <a href="#">
                 <div class="books-grid__info-container">
                     <div class="books-grid__image-container">
@@ -26,8 +25,8 @@
                     <p class="books-grid__info-container__price">S/ 40</p>
                 </div>
             </a>
-        </div>
-        -->
+        </div> -->
+       
 </div>
 
 <pagination-template class="pagination-container" #p="paginationApi" [id]="config.id!"
@@ -52,7 +51,7 @@
             </div>
         </div>
 
-        <div class="pagination-next">
+        <div class="pagination-buttons__next">
             <a class="pagination-button" [class.disabled]="p.isLastPage()" (click)="p.next()">
                 <img class="pagination-button__img" src="./assets/arrow-navigation.svg" alt="">
             </a>

@@ -4,7 +4,7 @@
     box-sizing: inherit;
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: Helvetica, 'Inter', sans-serif;
 
     // MODO DEBUG
     // outline: 2px solid green;
@@ -62,4 +62,14 @@ button {
 
 button:hover {
     cursor: pointer;
+}
+
+.animated-hover {
+    transition: all 0.1s ease;
+    position: relative;
+    bottom: 0;
+}
+
+.animated-hover:hover {
+    bottom: 2px;
 }

@@ -48,7 +48,16 @@ $main-color: #24292E;
         display: flex;
         // align-items: center;
         gap: 30px;
-        height: 40px;
+
+        &__item {
+            transition: all 0.1s ease;
+            position: relative;
+            bottom: 0;
+        }
+
+        &__item:hover {
+            bottom: 2px
+        }
 
         &__item a, &__item button {
             display: flex;

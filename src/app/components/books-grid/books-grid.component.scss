@@ -18,6 +18,13 @@ $ncols: 1, 2, 3, 4, 5, 6, 7, 8;
         width: 100%;
         // outline: 2px solid black;
         padding: 30px;
+        transition: all 0.1s ease;
+        position: relative;
+        bottom: 0px;
+    }
+
+    &__item:hover {
+        bottom: 20px;
     }
 
     &__info-container {
@@ -66,21 +73,48 @@ $ncols: 1, 2, 3, 4, 5, 6, 7, 8;
 .pagination-buttons {
     margin-bottom: 30px;
 
+
     display: flex;
     justify-content: center;
     gap: 30px;
 
     &__previous {
         rotate: 180deg;
+        transition: all 0.1s ease;
+        position: relative;
+        bottom: 0;
+    }
+
+    &__previous:hover {
+        bottom: 3px;
+    }
+
+    &__next {
+        transition: all 0.1s ease;
+        position: relative;
+        bottom: 0;
+    }
+
+    &__next:hover {
+        bottom: 3px;
     }
 }
 
+
 .pagination-button {
+    transition: all 0.1s ease;
+    position: relative;
+    bottom: 0;
+
     display: inline-block;
     outline: 1px solid #AAAAAA;
     padding: 15px 20px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.pagination-button:hover {
+    bottom: 3px;
 }
 
 .pagination-button--current {
