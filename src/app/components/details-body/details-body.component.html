@@ -3,7 +3,7 @@
     <div class="bookhero__img-container">
       <img
         class="bookhero__img"
-        [src]="libro!.imagen"
+        [src]="libro.imagen"
         alt="cover"
       />
     </div>
@@ -15,8 +15,8 @@
       </p>
       <div class="dividerline"></div>
       <h4 class="bookhero__price">Precio: S/ {{libro!.precio}}</h4>
-      <button class="bookhero__button animated-hover">
-        <img src="/assets/minicart.svg" alt="login icon" />
+      <button class="bookhero__button animated-hover" (click)="addBookToCart()">
+        <img src="/assets/minicart.svg" alt="cart icon" />
         Añadir al carrito
       </button>
     </div>
