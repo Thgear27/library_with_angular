@@ -4,6 +4,7 @@ import { Libro } from 'src/app/models/libro';
 import { VentaDetalle } from 'src/app/models/venta-detalle';
 import { CartService } from 'src/app/services/cart.service';
 import { LibrosService } from 'src/app/services/libros.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-details-body',
@@ -35,6 +36,7 @@ export class DetailsBodyComponent implements OnInit {
     ventaDetalle.precio = this.libro?.precio || -1;
 
     this.cartService.addBook(ventaDetalle);
+    Swal.fire("Añadido al carrito", "Producto agregado al carrito !!", "success")
     this.cartService.printDebug();
   }
 }

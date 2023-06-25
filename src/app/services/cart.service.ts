@@ -74,7 +74,7 @@ export class CartService {
 
   saveVenta() {
     const requestUrl = 'http://localhost:8080/api/ventas';
-    console.log(this.ventaJSON);
+    //console.log(this.ventaJSON);
     return this.http.post<any>(requestUrl, this.ventaJSON);
   }
 }
