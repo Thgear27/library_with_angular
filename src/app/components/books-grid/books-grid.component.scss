@@ -25,6 +25,7 @@ $ncols: 1, 2, 3, 4, 5, 6, 7, 8;
 
     &__item:hover {
         bottom: 20px;
+        opacity: 0.6;
     }
 
     &__info-container {
@@ -87,6 +88,7 @@ $ncols: 1, 2, 3, 4, 5, 6, 7, 8;
 
     &__previous:hover {
         bottom: 3px;
+        opacity: 0.6;
     }
 
     &__next {
@@ -97,6 +99,7 @@ $ncols: 1, 2, 3, 4, 5, 6, 7, 8;
 
     &__next:hover {
         bottom: 3px;
+        opacity: 0.6;
     }
 }
 
@@ -115,6 +118,7 @@ $ncols: 1, 2, 3, 4, 5, 6, 7, 8;
 
 .pagination-button:hover {
     bottom: 3px;
+    opacity: 0.6;
 }
 
 .pagination-button--current {

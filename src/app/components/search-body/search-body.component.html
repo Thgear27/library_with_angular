@@ -4,7 +4,7 @@
   </h1>
   <div class="search__main">
     <div class="search__left">
-      <form class="filters" (ngSubmit)="applyFilters()">
+      <form class="filters">
         <h3 class="filters__title">Filtros</h3>
         <ul class="filters__list">
           <div class="filter filter--dropdown">
@@ -86,9 +86,23 @@
             </ul>
           </div>
         </ul>
-        <button class="filters__button animated-hover" type="submit" id="filters-submit">
-          Aplicar
-        </button>
+        <div class="buttons-container">
+          <button
+            class="filters__button filters__button--secondary animated-hover"
+            (click)="clearFilters()"
+            id="filters-submit"
+          >
+            Limpiar filtros
+          </button>
+          <button
+            class="filters__button animated-hover"
+            type="submit"
+            id="filters-submit"
+            (click)="applyFilters()"
+          >
+            Aplicar
+          </button>
+        </div>
       </form>
     </div>
     <div class="search__right">
