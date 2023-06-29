@@ -96,6 +96,11 @@ export class SearchBodyComponent implements OnInit {
       const ele = item as HTMLInputElement;
       ele.value = '';
     });
+
+    this.categoriaSelected = '';
+    this.autorSelected = '';
+    this.editorialSelected = '';
+    this.tituloSelected = '';
   }
 
   public config: PaginationInstance = {

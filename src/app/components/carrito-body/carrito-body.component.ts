@@ -60,6 +60,7 @@ export class CarritoBodyComponent {
         confirmButtonColor: '#2A2C31',
         text: 'Debe ingresar por lo menor un libro para poder hacer una compra',
       });
+      window.location.reload();
       return;
     }
 
