@@ -4,6 +4,7 @@ import { Libro } from 'src/app/models/libro';
 import { VentaDetalle } from 'src/app/models/venta-detalle';
 import { CartService } from 'src/app/services/cart.service';
 import { LibrosService } from 'src/app/services/libros.service';
+import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,7 +19,8 @@ export class DetailsBodyComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private libroService: LibrosService,
-    private cartService: CartService
+    private cartService: CartService,
+    private loginService:LoginService
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +32,15 @@ export class DetailsBodyComponent implements OnInit {
   }
 
   addBookToCart() {
+    if(!this.loginService.isLogged()){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        confirmButtonColor: "#2A2C31",
+        text: 'Debe iniciar sesion',
+      })
+      return;
+    }
     let ventaDetalle: VentaDetalle = new VentaDetalle();
     ventaDetalle.cantidad = 1;
     ventaDetalle.libro.idLibro = this.libro?.idLibro || -1;
