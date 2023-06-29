@@ -1,4 +1,4 @@
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Venta } from '../models/venta';
 import { VentaDetalle } from '../models/venta-detalle';
 import { HttpClient } from '@angular/common/http';
@@ -69,6 +69,7 @@ export class CartService {
     this.ventaJSON.ventaDetalles.forEach((item) => {
       total += item.cantidad * item.precio;
     });
+    this.ventaJSON.impuesto = total * 0.18;
     this.ventaJSON.total = total;
   }
 
