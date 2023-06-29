@@ -65,10 +65,10 @@ export class LoginBodyComponent {
     this.loginService.generateToken(this.user).subscribe({
       next: (data: any) => {
         this.loginService.loginUser(data.token) //POR EL CONTENIDO QUE ME DA LA RESPUESTA EN MI BACK
-        console.log(data.token);
+        //console.log(data.token);
         this.loginService.getCurrentClient().subscribe((cliente: any) => {
           this.loginService.setClient(cliente);
-          console.log(cliente);
+          //console.log(cliente);
         })
         Swal.fire("Inicio de sesión", "Usted ha iniciado sesión correctamente", "success")
         this.router.navigate(['home']);

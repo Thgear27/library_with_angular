@@ -48,5 +48,7 @@ export class LoginService {
   logOut() {
     localStorage.removeItem("token");
     localStorage.removeItem("cliente");
+    localStorage.removeItem("carrito");
+    window.location.reload();
   }
 }
