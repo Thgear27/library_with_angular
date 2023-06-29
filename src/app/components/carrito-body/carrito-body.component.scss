@@ -1,0 +1,122 @@
+.carrito-body {
+    padding: 20px;
+    
+    &__title {
+        text-align: left;
+        padding-bottom: 20px;
+    }
+
+    &__main {
+        display: grid;
+        grid-template-columns: 4fr 2fr;
+        gap: 20px;
+    }
+}
+
+.products__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-card {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+
+    &__right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__img-wraper {
+        position: relative;
+        padding-bottom: 110%;
+        background-color: red;
+        width: 100%;
+    }
+
+    &__img {
+        width: 100%;
+        position: absolute;
+        margin: auto;
+    }
+
+    &__img-container {
+        width: 10rem;
+        overflow: hidden;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__title {
+        color: #000;
+        font-size: 1.6rem;
+        font-family: Inter;
+        font-weight: 700;
+        line-height: 1.5rem;
+        letter-spacing: 0.5px;
+    }
+
+    &__autor {
+        color: #000;
+        font-size: 15px;
+        font-family: Inter;
+        line-height: 2rem;
+        letter-spacing: 0.5px;
+    }
+
+    &__price {
+        color: #000;
+        font-size: 1.5rem;
+        font-family: Inter;
+        letter-spacing: 0.5px;
+    }
+}
+
+.buttons {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+
+    &__button {
+        padding: 10px 15px;
+    }
+
+    &__amount {
+        padding: 10px 15px;
+        color: black;
+        border: 1px solid black;
+        background-color: white;
+    }
+}
+
+.resume {
+    height: min-content;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+
+    &__total-price {
+        display: flex;
+        width: 100%;
+    }
+
+    &__price {
+        margin-left: auto;
+    }
+
+    &__buy {
+        margin-top: auto;
+        padding: 12px 20px;
+        width: 100%;
+    }
+}

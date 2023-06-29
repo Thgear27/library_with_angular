@@ -1,0 +1,38 @@
+<section class="container carrito-body">
+  <h1 class="carrito-body__title">Carrito de compras:</h1>
+  <div class="carrito-body__main">
+    <ul class="products__list">
+      <li class="product-card" *ngFor="let lib of libros">
+        <div class="product-card__img-container">
+          <div class="product-card__img-wraper">
+            <a [href]="'booksdetails/' + lib.idLibro">
+              <img class="product-card__img" [src]="lib.imagen" alt="cover" />
+            </a>
+          </div>
+        </div>
+        <div class="product-card__right">
+          <div class="product-card__info">
+            <h3 class="product-card__title">{{ lib.titulo }}</h3>
+            <p class="product-card__autor">Autor: {{ lib.autor }}</p>
+            <p class="product-card__price">S/ {{ lib.precio }}</p>
+          </div>
+          <div class="buttons">
+            <button class="buttons__button" (click)="onMinusButton(lib.idLibro)">-</button>
+            <button class="buttons__amount">
+              {{ getBookAmountById(lib.idLibro) }}
+            </button>
+            <button class="buttons__button" (click)="onPlusButton(lib.idLibro, lib.precio)">+</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="resume">
+      <h3 class="resume__title">Libros ({{venta.ventaDetalles.length}})</h3>
+      <div class="resume__total-price">
+        <p class="resume__total">Total:</p>
+        <p class="resume__price">S/ {{venta.total}}</p>
+      </div>
+      <button class="resume__buy" (click)="onRealizarVentaButton()">Realizar compra</button>
+    </div>
+  </div>
+</section>

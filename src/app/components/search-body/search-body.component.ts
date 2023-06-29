@@ -82,6 +82,22 @@ export class SearchBodyComponent implements OnInit {
     this.searchService.doSearchSubject.next(false);
   }
 
+  clearFilters() {
+    // Limpia los radiobuttons
+    let allRadioButtons = document.getElementsByClassName('filter__option-check');
+    Array.from(allRadioButtons).forEach((item) => {
+      const ele = item as HTMLInputElement;
+      ele.checked = false;
+    }); 
+
+    // Limpia las input text
+    let allInputText = document.getElementsByClassName('filter__input-text');
+    Array.from(allInputText).forEach((item) => {
+      const ele = item as HTMLInputElement;
+      ele.value = '';
+    });
+  }
+
   public config: PaginationInstance = {
     id: 'custom',
     itemsPerPage: 12,

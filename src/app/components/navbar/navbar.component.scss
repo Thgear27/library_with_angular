@@ -56,10 +56,12 @@ $main-color: #24292E;
         }
 
         &__item:hover {
-            bottom: 2px
+            bottom: 2px;
+            opacity: 0.6;
         }
 
-        &__item a, &__item button {
+        &__item a,
+        &__item button {
             display: flex;
             align-items: center;
             height: 100%;

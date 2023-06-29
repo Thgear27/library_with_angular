@@ -19,6 +19,8 @@ import { SearchComponent } from './views/search/search.component';
 import { BooksGridComponent } from './components/books-grid/books-grid.component';
 import { DetailsBodyComponent } from './components/details-body/details-body.component';
 import { DetailsComponent } from './views/details/details.component';
+import { CarritoBodyComponent } from './components/carrito-body/carrito-body.component';
+import { CarritoComponent } from './views/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { DetailsComponent } from './views/details/details.component';
     SearchComponent,
     BooksGridComponent,
     DetailsBodyComponent,
-    DetailsComponent
+    DetailsComponent,
+    CarritoBodyComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

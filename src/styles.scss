@@ -62,6 +62,7 @@ button {
 
 button:hover {
     cursor: pointer;
+    opacity: 0.6;
 }
 
 .animated-hover {
@@ -72,4 +73,5 @@ button:hover {
 
 .animated-hover:hover {
     bottom: 2px;
+    opacity: 0.6;
 }
