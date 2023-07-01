@@ -64,7 +64,7 @@
         button:hover {
             bottom: 2px
         }
-        
+
         img {
             width: 15px;
         }
@@ -154,4 +154,13 @@
             width: 100%;
         }
     }
+}
+
+.title-mainpage {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    padding: 20px;
+    color: #1a1c1f;
+
+    border-bottom: 2px solid rgb(205, 205, 205);
 }

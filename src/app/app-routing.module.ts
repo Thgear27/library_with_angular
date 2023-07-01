@@ -5,6 +5,7 @@ import { LoginRegisterComponent } from './views/login-register/login-register.co
 import { SearchComponent } from './views/search/search.component';
 import { DetailsComponent } from './views/details/details.component';
 import { CarritoComponent } from './views/carrito/carrito.component';
+import { MypurchasesComponent } from './views/mypurchases/mypurchases.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent}, 
   { path: 'login-register', component: LoginRegisterComponent },
   { path: 'booksdetails/:id', component: DetailsComponent},
-  { path: 'carrito', component: CarritoComponent}
+  { path: 'carrito', component: CarritoComponent},
+  { path: 'miscompras', component: MypurchasesComponent}
 ];
 
 @NgModule({
