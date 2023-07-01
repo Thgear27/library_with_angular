@@ -21,6 +21,8 @@ import { DetailsBodyComponent } from './components/details-body/details-body.com
 import { DetailsComponent } from './views/details/details.component';
 import { CarritoBodyComponent } from './components/carrito-body/carrito-body.component';
 import { CarritoComponent } from './views/carrito/carrito.component';
+import { MypurchasesBodyComponent } from './components/mypurchases-body/mypurchases-body.component';
+import { MypurchasesComponent } from './views/mypurchases/mypurchases.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { CarritoComponent } from './views/carrito/carrito.component';
     DetailsBodyComponent,
     DetailsComponent,
     CarritoBodyComponent,
-    CarritoComponent
+    CarritoComponent,
+    MypurchasesBodyComponent,
+    MypurchasesComponent
   ],
   imports: [
     BrowserModule,
