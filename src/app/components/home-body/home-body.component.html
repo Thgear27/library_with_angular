@@ -1,61 +1,78 @@
 <section class="main">
-    <div class="container hero">
-        <div class="hero__info">
-            <h1>Bienvenido a BookStore</h1>
-            <p>Encuentra la magia de la lectura en nuestra BookStore</p>
-            <button (click)="onClickBuscarButton()">Buscar ahora<img src="./assets/arrow.svg" alt="arrow"></button>
-
-        </div>
-        <div class="hero__right-svg">
-            <img class="hero__hero-svg" src="./assets/hero-img.svg" alt="woman reading">
-        </div>
+  <div class="container hero">
+    <div class="hero__info">
+      <h1>Bienvenido a BookStore</h1>
+      <p>Encuentra la magia de la lectura en nuestra BookStore</p>
+      <button (click)="onClickBuscarButton()">
+        Buscar ahora<img src="./assets/arrow.svg" alt="arrow" />
+      </button>
     </div>
+    <div class="hero__right-svg">
+      <img
+        class="hero__hero-svg"
+        src="./assets/hero-img.svg"
+        alt="woman reading"
+      />
+    </div>
+  </div>
 </section>
 
-<section class="category-slider container">
-    <h1>Categorías populares</h1>
-    <div class="category-slider__slider-container">
-        <button class="animated-hover"><img style="rotate: 180deg;" src="./assets/arrow.svg" alt="arrow"></button>
-        <div class="category-slider__list-container">
-            <ul>
-                <li>
-                    <a href="#">
-                        <div class="category-slider__item-div">
-                            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-book-cover-design-template-ea06579b69a398ba7d4fc845e80fcd66_screen.jpg?ts=1673708846"
-                                alt="">
-                            <p>Acción</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="category-slider__item-div">
-                            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/romantic-novel-cover-design-template-1f302ee20814ee9513506d90de228af7_screen.jpg?ts=1637007743"
-                                alt="">
-                            <p>Romance</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="category-slider__item-div">
-                            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/portada-de-libro-kindle-novela-de-misterio-design-template-80ca815d39ea5f2307ad71c9ff5f4cf2_screen.jpg?ts=1637014867"
-                                alt="">
-                            <p>Novelas</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <button class="animated-hover"><img src="./assets/arrow.svg" alt="arrow"></button>
+<!-- <section class="category-slider container">
+  <h1>Categorías populares</h1>
+  <div class="category-slider__slider-container">
+    <button class="animated-hover">
+      <img style="rotate: 180deg" src="./assets/arrow.svg" alt="arrow" />
+    </button>
+    <div class="category-slider__list-container">
+      <ul>
+        <li>
+          <a href="#">
+            <div class="category-slider__item-div">
+              <img
+                src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-book-cover-design-template-ea06579b69a398ba7d4fc845e80fcd66_screen.jpg?ts=1673708846"
+                alt=""
+              />
+              <p>Acción</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="category-slider__item-div">
+              <img
+                src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/romantic-novel-cover-design-template-1f302ee20814ee9513506d90de228af7_screen.jpg?ts=1637007743"
+                alt=""
+              />
+              <p>Romance</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <div class="category-slider__item-div">
+              <img
+                src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/portada-de-libro-kindle-novela-de-misterio-design-template-80ca815d39ea5f2307ad71c9ff5f4cf2_screen.jpg?ts=1637014867"
+                alt=""
+              />
+              <p>Novelas</p>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
-</section>
+    <button class="animated-hover">
+      <img src="./assets/arrow.svg" alt="arrow" />
+    </button>
+  </div>
+</section> -->
 
 <section class="container">
-    <h1>Libros más vendidos</h1>
-    <app-books-grid [libros]="libros" [gridConfig]="booksGridConfig"></app-books-grid>
+  <h1 class="title-mainpage">Nuestros libros</h1>
+  <app-books-grid
+    [libros]="libros"
+    [gridConfig]="booksGridConfig"
+  ></app-books-grid>
 </section>
-
 
 <!-- <pagination-controls class="pagination" style="text-align: center;" (pageChange)="page = $event"
     previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls> -->
