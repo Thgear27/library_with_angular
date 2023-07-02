@@ -20,7 +20,7 @@ export class DetailsBodyComponent implements OnInit {
     private route: ActivatedRoute,
     private libroService: LibrosService,
     private cartService: CartService,
-    private loginService:LoginService
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -32,13 +32,13 @@ export class DetailsBodyComponent implements OnInit {
   }
 
   addBookToCart() {
-    if(!this.loginService.isLogged()){
+    if (!this.loginService.isLogged()) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        confirmButtonColor: "#2A2C31",
+        confirmButtonColor: '#24292E',
         text: 'Debe iniciar sesion',
-      })
+      });
       return;
     }
     let ventaDetalle: VentaDetalle = new VentaDetalle();
@@ -47,7 +47,12 @@ export class DetailsBodyComponent implements OnInit {
     ventaDetalle.precio = this.libro?.precio || -1;
 
     this.cartService.addBook(ventaDetalle);
-    Swal.fire("Añadido al carrito", "Producto agregado al carrito !!", "success")
+    Swal.fire({
+      title: 'Añadido al carrito',
+      text: 'Producto agregado al carrito !!',
+      icon: 'success',
+      confirmButtonColor: '#24292E',
+    });
     this.cartService.printDebug();
   }
 }

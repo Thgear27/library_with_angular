@@ -25,6 +25,10 @@
         font-style: normal;
         font-weight: 600;
         line-height: normal;
+
+        &--center {
+            text-align: center;
+        }
     }
 
     &__booklist {
@@ -64,6 +68,7 @@
     &__info-container {
         display: flex;
         flex-direction: column;
+        gap: 6px;
         justify-content: space-between;
     }
 
@@ -84,5 +89,40 @@
         font-weight: 400;
         line-height: normal;
     }
+}
 
+
+@media screen and (max-width: 600px) {
+    .book-details {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+
+        &__img-container {
+            width: 80%;
+            max-width: 250px;
+        }
+
+        &__info-container {
+            width: 80%;
+        }
+
+        &__info-line {
+            text-align: center;
+            &--price {
+                text-align: center;
+            }
+        }
+
+    }
+
+    .compra-card {
+        &__booklist {
+            gap: 40px;
+        }
+
+        &__title {
+            text-align: center;
+        }
+    }
 }

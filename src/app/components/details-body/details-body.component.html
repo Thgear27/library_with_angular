@@ -1,20 +1,16 @@
 <section class="container details">
   <div class="bookhero">
     <div class="bookhero__img-container">
-      <img
-        class="bookhero__img"
-        [src]="libro.imagen"
-        alt="cover"
-      />
+      <div class="bookhero__img-wraper">
+        <img class="bookhero__img" [src]="libro.imagen" alt="cover" />
+      </div>
     </div>
     <div class="bookhero__info-container">
-      <h1 class="bookhero__title">{{libro!.titulo}}</h1>
-      <p class="bookhero__info">Autor: {{libro!.autor}}</p>
-      <p class="bookhero__info">
-        Editorial: {{libro!.editorial.nombre}} 
-      </p>
+      <h1 class="bookhero__title">{{ libro!.titulo }}</h1>
+      <p class="bookhero__info">Autor: {{ libro!.autor }}</p>
+      <p class="bookhero__info">Editorial: {{ libro!.editorial.nombre }}</p>
       <div class="dividerline"></div>
-      <h4 class="bookhero__price">Precio: S/ {{libro!.precio}}</h4>
+      <h4 class="bookhero__price">Precio: S/ {{ libro!.precio }}</h4>
       <button class="bookhero__button animated-hover" (click)="addBookToCart()">
         <img src="/assets/minicart.svg" alt="cart icon" />
         Añadir al carrito
@@ -26,25 +22,25 @@
     <h2>Información adicional del Libro</h2>
     <p class="moreinformation__textinfo">
       <strong>Descripción</strong><br />
-      {{libro!.descripcion}}
+      {{ libro!.descripcion }}
     </p>
     <p class="moreinformation__textinfo">
-      <strong>Año de publicación: </strong> {{anioPublicacion}}
+      <strong>Año de publicación: </strong> {{ anioPublicacion }}
     </p>
     <p class="moreinformation__textinfo">
-      <strong>Editorial: </strong> {{libro!.editorial.nombre}}
+      <strong>Editorial: </strong> {{ libro!.editorial.nombre }}
     </p>
     <p class="moreinformation__textinfo">
-      <strong>País: </strong> {{libro!.editorial.pais.pais}}
+      <strong>País: </strong> {{ libro!.editorial.pais.pais }}
     </p>
     <p class="moreinformation__textinfo">
-      <strong>Edición: </strong> {{libro!.edicion}}
+      <strong>Edición: </strong> {{ libro!.edicion }}
     </p>
     <p class="moreinformation__textinfo">
-      <strong>Autor:</strong> {{libro!.autor}}
+      <strong>Autor:</strong> {{ libro!.autor }}
     </p>
     <p class="moreinformation__textinfo">
-      <strong>Categoría:</strong> {{libro!.tipo.tipo}}
+      <strong>Categoría:</strong> {{ libro!.tipo.tipo }}
     </p>
   </div>
 </section>

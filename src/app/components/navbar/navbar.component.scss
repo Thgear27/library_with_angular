@@ -12,6 +12,7 @@ $main-color: #24292E;
     .inner {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         padding: 12px;
     }
 
@@ -67,6 +68,113 @@ $main-color: #24292E;
             height: 100%;
             gap: 5px;
             font-size: 1rem;
+        }
+    }
+}
+
+.menu-svg {
+    display: none;
+}
+
+.input-mobile {
+    display: none;
+}
+
+.menu-list-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .menu-svg {
+        display: unset;
+    }
+
+    .main-navbar {
+        padding-bottom: 10px;
+
+        &__input-container {
+            display: none;
+        }
+
+        &__linkslist {
+            display: none;
+        }
+    }
+
+    .input-mobile {
+        display: unset;
+        width: 80px;
+
+        &__input {
+            padding: 13px;
+            padding-left: 50px;
+            color: #3C3C43 !important;
+            width: 100%;
+        }
+
+        &__form {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        &__button {
+            background-color: #393e44;
+            padding: 0px 10px;
+        }
+
+        &__svg {
+            position: absolute;
+            fill: #3C3C43;
+            opacity: 0.6;
+            width: 20px;
+            inset: 0;
+            left: 16px;
+            margin: auto 0;
+        }
+    }
+
+    [show-menu="true"] {
+        // display: flex !important;
+        height: auto;
+        transform: rotate(0);
+        transform: scale(1);
+    }
+
+    [show-menu="false"] {
+        // display: none !important;
+        transform: scale(0);
+        height: 0;
+    }
+
+    .menu-list-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        transition: all 0.2s ease;
+
+        &__item {
+            width: 80%;
+            padding: 20px 0;
+        }
+
+        &__item+&__item {
+            border-radius: 0;
+            border-top: 2px solid rgba(255, 255, 255, 0.312);
+        }
+
+        &__link {
+            background-color: unset;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 1.2rem;
+            width: 100%;
         }
     }
 }

@@ -6,3 +6,9 @@
 #content-wrap {
     padding-bottom: 160px;
 }
+
+@media screen and (max-width: 1000px) {
+    #content-wrap {
+        padding-bottom: 180px;
+    }
+}

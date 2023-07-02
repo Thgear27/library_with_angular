@@ -22,11 +22,12 @@ export class NavbarComponent {
 
   logOutButton() {
     this.loginService.logOut();
-    Swal.fire(
-      'Sesión cerrada',
-      'Usted ha cerrado la sesión correctamente',
-      'success'
-    );
+    Swal.fire({
+      icon: 'success',
+      title: 'Sesión cerrada',
+      text: 'Usted ha cerrado la sesión correctamente',
+      confirmButtonColor: '#24292E'
+    });
   }
 
   onSearch() {
@@ -35,5 +36,15 @@ export class NavbarComponent {
     this.searchService.doSearchSubject.next(true);
 
     this.router.navigate(['search']);
+  }
+
+  toggleMobileMenu() {
+    let menuShown = document.querySelector('[data-menu-mobile]');
+    let currentAttribute = menuShown?.getAttribute('show-menu');
+    if (currentAttribute == 'false') {
+      menuShown?.setAttribute('show-menu', 'true');
+    } else {
+      menuShown?.setAttribute('show-menu', 'false');
+    }
   }
 }

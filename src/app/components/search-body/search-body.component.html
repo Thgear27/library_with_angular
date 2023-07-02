@@ -1,124 +1,135 @@
-<div class="container search">
-  <h1 class="search__title">
-    Búsqueda: {{ searchService.getSharedBookName() }}
-  </h1>
-  <div class="search__main">
-    <div class="search__left">
-      <form class="filters">
-        <h3 class="filters__title">Filtros</h3>
-        <ul class="filters__list">
-          <div class="filter filter--dropdown">
-            <p class="filter__name">Categoría</p>
-            <ul class="filter__options-list">
-              <li
-                class="filter__option"
-                *ngFor="let categoria of arrCategorias"
-              >
-                <label
-                  [for]="categoria.idTipo + 'tipo'"
-                  class="filter__option-name"
-                  >{{ categoria.tipo }}</label
+<div class="search">
+  <div class="container">
+    <h1 class="search__title">
+      Búsqueda: {{ searchService.getSharedBookName() }}
+    </h1>
+    <button (click)="toogleMenuFilters()" class="show-filters-button">
+      Filtros
+    </button>
+    <div class="search__main">
+      <div class="search__left" show-left-filters="false" data-left-filters>
+        <button
+          (click)="toogleMenuFilters()"
+          class="search__left-button-mobile"
+        >
+          X
+        </button>
+        <form class="filters">
+          <h3 class="filters__title">Filtros</h3>
+          <ul class="filters__list">
+            <div class="filter filter--dropdown">
+              <p class="filter__name">Categoría</p>
+              <ul class="filter__options-list">
+                <li
+                  class="filter__option"
+                  *ngFor="let categoria of arrCategorias"
                 >
-                <input
-                  [(ngModel)]="categoriaSelected"
-                  [value]="categoria.tipo"
-                  class="filter__option-check"
-                  name="categoriaRadio"
-                  type="radio"
-                  [id]="categoria.idTipo + 'tipo'"
-                />
-              </li>
-              <!-- <li class="filter__option">
+                  <label
+                    [for]="categoria.idTipo + 'tipo'"
+                    class="filter__option-name"
+                    >{{ categoria.tipo }}</label
+                  >
+                  <input
+                    [(ngModel)]="categoriaSelected"
+                    [value]="categoria.tipo"
+                    class="filter__option-check"
+                    name="categoriaRadio"
+                    type="radio"
+                    [id]="categoria.idTipo + 'tipo'"
+                  />
+                </li>
+                <!-- <li class="filter__option">
                                 <label class="filter__option-name">Acción</label>
                                 <input class="filter__option-check" type="checkbox" id="categoria-accion">
                             </li> -->
-            </ul>
-          </div>
-          <div class="filter filter--input">
-            <p class="filter__name">Título</p>
-            <div class="filter__input-container">
-              <input
-                [(ngModel)]="tituloSelected"
-                name="authorName"
-                class="filter__input-text"
-                type="text"
-                placeholder="Ingrese el nombre"
-              />
+              </ul>
             </div>
-          </div>
-          <div class="filter filter--input">
-            <p class="filter__name">Autor</p>
-            <div class="filter__input-container">
-              <input
-                [(ngModel)]="autorSelected"
-                name="authorName"
-                class="filter__input-text"
-                type="text"
-                placeholder="Ingrese el nombre"
-              />
-            </div>
-          </div>
-          <div class="filter filter--dropdown">
-            <p class="filter__name">Editorial</p>
-            <ul class="filter__options-list">
-              <li
-                class="filter__option"
-                *ngFor="let editorial of arrEditoriales"
-              >
-                <label
-                  [for]="editorial.idEditorial + 'editorial'"
-                  class="filter__option-name"
-                  >{{ editorial.nombre }}</label
-                >
+            <div class="filter filter--input">
+              <p class="filter__name">Título</p>
+              <div class="filter__input-container">
                 <input
-                  [(ngModel)]="editorialSelected"
-                  [value]="editorial.nombre"
-                  class="filter__option-check"
-                  name="editorialRadio"
-                  type="radio"
-                  [id]="editorial.idEditorial + 'editorial'"
+                  [(ngModel)]="tituloSelected"
+                  name="authorName"
+                  class="filter__input-text"
+                  type="text"
+                  placeholder="Ingrese el nombre"
                 />
-              </li>
-              <!-- <li class="filter__option">
+              </div>
+            </div>
+            <div class="filter filter--input">
+              <p class="filter__name">Autor</p>
+              <div class="filter__input-container">
+                <input
+                  [(ngModel)]="autorSelected"
+                  name="authorName"
+                  class="filter__input-text"
+                  type="text"
+                  placeholder="Ingrese el nombre"
+                />
+              </div>
+            </div>
+            <div class="filter filter--dropdown">
+              <p class="filter__name">Editorial</p>
+              <ul class="filter__options-list">
+                <li
+                  class="filter__option"
+                  *ngFor="let editorial of arrEditoriales"
+                >
+                  <label
+                    [for]="editorial.idEditorial + 'editorial'"
+                    class="filter__option-name"
+                    >{{ editorial.nombre }}</label
+                  >
+                  <input
+                    [(ngModel)]="editorialSelected"
+                    [value]="editorial.nombre"
+                    class="filter__option-check"
+                    name="editorialRadio"
+                    type="radio"
+                    [id]="editorial.idEditorial + 'editorial'"
+                  />
+                </li>
+                <!-- <li class="filter__option">
                                 <label class="filter__option-name">Editorial 2</label>
                                 <input class="filter__option-check" type="checkbox" id="editorial-2">
                             </li> -->
-            </ul>
+              </ul>
+            </div>
+          </ul>
+          <div class="buttons-container">
+            <button
+              class="filters__button filters__button--secondary animated-hover"
+              (click)="clearFilters()"
+              id="filters-submit"
+            >
+              Limpiar filtros
+            </button>
+            <button
+              class="filters__button animated-hover"
+              type="submit"
+              id="filters-submit"
+              (click)="applyFilters()"
+            >
+              Aplicar
+            </button>
           </div>
-        </ul>
-        <div class="buttons-container">
-          <button
-            class="filters__button filters__button--secondary animated-hover"
-            (click)="clearFilters()"
-            id="filters-submit"
-          >
-            Limpiar filtros
-          </button>
-          <button
-            class="filters__button animated-hover"
-            type="submit"
-            id="filters-submit"
-            (click)="applyFilters()"
-          >
-            Aplicar
-          </button>
+        </form>
+      </div>
+      <div class="search__right">
+        <app-books-grid
+          *ngIf="libros.length != 0"
+          [libros]="libros"
+          [gridConfig]="booksGridConfig"
+        ></app-books-grid>
+        <div class="notfound" *ngIf="libros.length == 0">
+          <h1 class="notfound__title">
+            Lo sentimos, no se encontraron libros que coincidan con los filtros
+            seleccionados.
+          </h1>
+          <p class="notfound__text">
+            Por favor, intenta nuevamente con diferentes criterios de búsqueda
+          </p>
         </div>
-      </form>
-    </div>
-    <div class="search__right">
-      <app-books-grid
-        *ngIf="libros.length != 0"
-        [libros]="libros"
-        [gridConfig]="booksGridConfig"
-      ></app-books-grid>
-      <div class="notfound" *ngIf="libros.length == 0">
-        <h1 class="notfound__title">
-          Lo sentimos, no se encontraron libros que coincidan con los filtros
-          seleccionados.
-        </h1>
-        <p class="notfound__text">
-          Por favor, intenta nuevamente con diferentes criterios de búsqueda
-        </p>
       </div>
     </div>
   </div>

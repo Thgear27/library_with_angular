@@ -24,3 +24,16 @@
         gap: 30px;
     }
 }
+
+
+@media screen and (max-width: 1000px) {
+    ul {
+        flex-direction: column;
+        gap: 10px !important;
+        align-items: center;
+    }
+
+    .footer {
+        z-index: 99;
+    }
+}

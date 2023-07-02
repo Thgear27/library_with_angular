@@ -1,8 +1,9 @@
 <section class="container miscompras">
   <ul class="compras-list">
     <li class="compra-card" *ngFor="let venta of ventas">
-      <h2 class="compra-card__title">Compra Online</h2>
-      <h2 class="compra-card__title">Número de compra: {{venta.idVenta}}</h2>
+      <h2 class="compra-card__title compra-card__title--center">Compra Online</h2>
+      <h2 class="compra-card__title">ID de la compra: {{venta.idVenta}}</h2>
+      <h2 class="compra-card__title">Total: S/ {{venta.total}}</h2>
       <ul class="compra-card__booklist">
         <li class="book-details" *ngFor="let ventadetalle of venta.ventaDetalles">
           <div class="book-details__img-container">
