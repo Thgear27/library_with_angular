@@ -36,4 +36,14 @@ export class NavbarComponent {
 
     this.router.navigate(['search']);
   }
+
+  toggleMobileMenu() {
+    let menuShown = document.querySelector('[data-menu-mobile]');
+    let currentAttribute = menuShown?.getAttribute('show-menu');
+    if (currentAttribute == 'false') {
+      menuShown?.setAttribute('show-menu', 'true');
+    } else {
+      menuShown?.setAttribute('show-menu', 'false');
+    }
+  }
 }

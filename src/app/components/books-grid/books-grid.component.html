@@ -39,7 +39,7 @@
             </a>
         </div>
 
-        <div *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value">
+        <div class="pagination-buttons__number" *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value">
             <!-- Not currents -->
             <a class="pagination-button" (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
                 <span>{{ page.label }}</span>

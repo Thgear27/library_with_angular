@@ -1,6 +1,6 @@
 .carrito-body {
     padding: 20px;
-    
+
     &__title {
         text-align: left;
         padding-bottom: 20px;
@@ -20,6 +20,7 @@
 }
 
 .product-card {
+    border-radius: 8px;
     padding: 20px;
     display: flex;
     gap: 20px;
@@ -98,6 +99,7 @@
 }
 
 .resume {
+    border-radius: 8px;
     height: min-content;
     display: flex;
     gap: 20px;
@@ -118,5 +120,45 @@
         margin-top: auto;
         padding: 12px 20px;
         width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .carrito-body {
+
+        &__title {
+            text-align: left;
+            padding-bottom: 20px;
+        }
+
+        &__main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+    }
+
+    .product-card {
+        flex-direction: column;
+        align-items: center;
+
+        &__info h3,
+        &__info p {
+            text-align: center;
+        }
+
+        &__img-container {
+            width: 80%;
+        }
+
+        &__right {
+            width: 80%;
+        }
+    }
+
+    .buttons {
+        margin: 10px auto;
     }
 }
