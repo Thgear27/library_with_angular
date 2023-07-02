@@ -33,6 +33,7 @@ $color-selected: #009989;
         line-height: 29px;
 
         text-align: center;
+        text-transform: uppercase;
     }
 
     .selected {
@@ -108,4 +109,32 @@ input.ng-valid.ng-touched[required] {
 .button--disabled {
     opacity: 0.5;
 
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    .login-register-container {
+        // outline: 2px solid green;
+        width: 80%;
+        margin: 50px auto;
+    }
+
+    .options {
+
+        &__title {
+            font-size: 1rem;
+            text-transform: unset;
+        }
+    }
+
+    .form-container {
+        margin-top: 20px;
+    }
+
+    .form {
+        &__input-container {
+            grid-template-columns: 1fr;
+        }
+    }
 }

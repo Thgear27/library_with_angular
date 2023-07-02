@@ -22,11 +22,12 @@ export class NavbarComponent {
 
   logOutButton() {
     this.loginService.logOut();
-    Swal.fire(
-      'Sesión cerrada',
-      'Usted ha cerrado la sesión correctamente',
-      'success'
-    );
+    Swal.fire({
+      icon: 'success',
+      title: 'Sesión cerrada',
+      text: 'Usted ha cerrado la sesión correctamente',
+      confirmButtonColor: '#24292E'
+    });
   }
 
   onSearch() {
