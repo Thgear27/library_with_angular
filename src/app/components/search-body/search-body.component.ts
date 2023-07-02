@@ -84,11 +84,13 @@ export class SearchBodyComponent implements OnInit {
 
   clearFilters() {
     // Limpia los radiobuttons
-    let allRadioButtons = document.getElementsByClassName('filter__option-check');
+    let allRadioButtons = document.getElementsByClassName(
+      'filter__option-check'
+    );
     Array.from(allRadioButtons).forEach((item) => {
       const ele = item as HTMLInputElement;
       ele.checked = false;
-    }); 
+    });
 
     // Limpia las input text
     let allInputText = document.getElementsByClassName('filter__input-text');
@@ -107,4 +109,15 @@ export class SearchBodyComponent implements OnInit {
     itemsPerPage: 12,
     currentPage: 1,
   };
+
+  toogleMenuFilters() {
+    let menuFilters = document.querySelector('[data-left-filters]');
+    let currentAttribute = menuFilters?.getAttribute('show-left-filters');
+
+    if (currentAttribute == 'false') {
+      menuFilters?.setAttribute('show-left-filters', 'true');
+    } else {
+      menuFilters?.setAttribute('show-left-filters', 'false');
+    }
+  }
 }
