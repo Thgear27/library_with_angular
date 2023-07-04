@@ -1,6 +1,10 @@
 $main-color: #24292E;
 
 .main-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
     background-color: $main-color;
 
     p,
