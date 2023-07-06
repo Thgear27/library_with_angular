@@ -1,6 +1,8 @@
 $main-color: #24292E;
 
 .main-navbar {
+    transition: all 0.2s ease;
+
     position: fixed;
     top: 0;
     width: 100%;
@@ -74,6 +76,14 @@ $main-color: #24292E;
             font-size: 1rem;
         }
     }
+}
+
+[scrolled="down"] {
+    transform: translateY(-100%);
+}
+
+[scrolled="up"] {
+    transform: translateY(0%);
 }
 
 .menu-svg {

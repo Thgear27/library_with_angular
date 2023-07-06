@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgControlStatusGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { every } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
 import { SearchService } from 'src/app/services/search.service';
 import Swal from 'sweetalert2';
@@ -9,7 +11,7 @@ import Swal from 'sweetalert2';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   public searchInput: string;
 
   constructor(
@@ -20,13 +22,26 @@ export class NavbarComponent {
     this.searchInput = '';
   }
 
+  ngOnInit(): void {
+    var oldScrollY = window.scrollY;
+    var navbar = document.querySelector('[data-nav-bar]');
+    window.onscroll = function (e) {
+      if (oldScrollY < window.scrollY) {
+        navbar?.setAttribute('scrolled', 'down')
+      } else {
+        navbar?.setAttribute('scrolled', 'up')
+      }
+      oldScrollY = window.scrollY;
+    };
+  }
+
   logOutButton() {
     this.loginService.logOut();
     Swal.fire({
       icon: 'success',
       title: 'Sesión cerrada',
       text: 'Usted ha cerrado la sesión correctamente',
-      confirmButtonColor: '#24292E'
+      confirmButtonColor: '#24292E',
     });
   }
 
