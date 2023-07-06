@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente';
 import { User } from 'src/app/models/user';
 import { LoginService } from 'src/app/services/login.service';
 import { RegistroService } from 'src/app/services/registro.service';
 import Swal from 'sweetalert2';
+import * as AOS from 'aos'
 
 @Component({
   selector: 'app-login-body',
   templateUrl: './login-body.component.html',
   styleUrls: ['./login-body.component.scss'],
 })
-export class LoginBodyComponent {
+export class LoginBodyComponent implements OnInit{
   optionSelected?: string;
 
   constructor(
@@ -20,6 +21,10 @@ export class LoginBodyComponent {
     private loginService: LoginService
   ) {
     this.optionSelected = 'login';
+  }
+  ngOnInit(): void {
+    AOS.init();
+    window.addEventListener('load', AOS.refresh);
   }
 
   onOptionClick(option: string) {

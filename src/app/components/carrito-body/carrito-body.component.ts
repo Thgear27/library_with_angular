@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Libro } from 'src/app/models/libro';
 import { Venta } from 'src/app/models/venta';
 import { VentaDetalle } from 'src/app/models/venta-detalle';
 import { CartService } from 'src/app/services/cart.service';
 import { LibrosService } from 'src/app/services/libros.service';
 import Swal from 'sweetalert2';
-
+import * as AOS from 'aos';
 @Component({
   selector: 'app-carrito-body',
   templateUrl: './carrito-body.component.html',
   styleUrls: ['./carrito-body.component.scss'],
 })
-export class CarritoBodyComponent {
+export class CarritoBodyComponent implements OnInit{
   libros: Libro[] = [];
   venta: Venta;
 
@@ -27,6 +27,10 @@ export class CarritoBodyComponent {
         console.log(this.libros);
       });
     });
+  }
+  ngOnInit(): void {
+    AOS.init();
+    window.addEventListener('load', AOS.refresh);
   }
 
   getBookAmountById(id: number) {

@@ -1,5 +1,5 @@
 <section class="login-register-container">
-    <div class="options">
+    <div class="options" data-aos="fade-up">
         <div class="options__login" opction-selected="true" [class.selected]="'login' == optionSelected"
             (click)="onOptionClick('login')">
             <h1 class="options__title">Iniciar Sesión</h1>
@@ -12,7 +12,7 @@
 
     <div class="form-container">
         <!-- FORMULARIO INICIO DE SESIÓN -->
-        <form id="login-form" class="form" action="" (ngSubmit)="submitLogin()" *ngIf="'login' == optionSelected">
+        <form data-aos="fade-up" id="login-form" class="form" action="" (ngSubmit)="submitLogin()" *ngIf="'login' == optionSelected">
             <div class="form__input-container">
                 <div class="input-field">
                     <label class="input-field__label" for="login-email">Usuario</label>
@@ -32,7 +32,7 @@
         </form>
 
         <!-- FORMULARIO DE REGISTRO -->
-        <form id="register-form" #registerform="ngForm" class="form" (ngSubmit)="submitRegister()"
+        <form  data-aos="fade-up" id="register-form" #registerform="ngForm" class="form" (ngSubmit)="submitRegister()"
             *ngIf="'register' == optionSelected">
             <div class="form__input-container">
                 <div class="input-field">

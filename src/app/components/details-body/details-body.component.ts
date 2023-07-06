@@ -6,6 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { LibrosService } from 'src/app/services/libros.service';
 import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-details-body',
@@ -24,6 +25,9 @@ export class DetailsBodyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    AOS.init();
+    window.addEventListener('load', AOS.refresh);
+
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.libroService.getBookById(id).subscribe((data) => {
       this.libro = data;

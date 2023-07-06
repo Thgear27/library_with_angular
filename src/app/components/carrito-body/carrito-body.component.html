@@ -2,7 +2,7 @@
   <h1 class="carrito-body__title">Carrito de compras:</h1>
   <div class="carrito-body__main">
     <ul class="products__list">
-      <li class="product-card" *ngFor="let lib of libros">
+      <li class="product-card" *ngFor="let lib of libros" data-aos="fade-up">
         <div class="product-card__img-container">
           <div class="product-card__img-wraper">
             <a [href]="'booksdetails/' + lib.idLibro">
