@@ -56,7 +56,7 @@
                     <label class="input-field__label" for="email">Email</label>
                     <input #emailRegister="ngModel" [(ngModel)]="cliente.email" class="input-field__input" id="email"
                         name="email" type="email" placeholder="Ej: ejemplo@ejemplo.com"
-                        pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]{1,}$" required />
+                        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$" required />
                     <div *ngIf="!emailRegister.valid && emailRegister.touched" class="input-field__warning">
                         Escriba una dirección de email válida
                     </div>
