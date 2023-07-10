@@ -1,18 +1,18 @@
 <section class="login-register-container">
-    <div class="options">
+    <div class="options" data-aos="fade-up">
         <div class="options__login" opction-selected="true" [class.selected]="'login' == optionSelected"
             (click)="onOptionClick('login')">
             <h1 class="options__title">Iniciar Sesión</h1>
         </div>
         <div class="options__register" opction-selected="false" [class.selected]="'register' == optionSelected"
             (click)="onOptionClick('register')">
-            <h1 class="options__title">Registrase</h1>
+            <h1 class="options__title">Registrarse</h1>
         </div>
     </div>
 
     <div class="form-container">
         <!-- FORMULARIO INICIO DE SESIÓN -->
-        <form id="login-form" class="form" action="" (ngSubmit)="submitLogin()" *ngIf="'login' == optionSelected">
+        <form data-aos="fade-up" id="login-form" class="form" action="" (ngSubmit)="submitLogin()" *ngIf="'login' == optionSelected">
             <div class="form__input-container">
                 <div class="input-field">
                     <label class="input-field__label" for="login-email">Usuario</label>
@@ -32,7 +32,7 @@
         </form>
 
         <!-- FORMULARIO DE REGISTRO -->
-        <form id="register-form" #registerform="ngForm" class="form" (ngSubmit)="submitRegister()"
+        <form  data-aos="fade-up" id="register-form" #registerform="ngForm" class="form" (ngSubmit)="submitRegister()"
             *ngIf="'register' == optionSelected">
             <div class="form__input-container">
                 <div class="input-field">
@@ -56,7 +56,7 @@
                     <label class="input-field__label" for="email">Email</label>
                     <input #emailRegister="ngModel" [(ngModel)]="cliente.email" class="input-field__input" id="email"
                         name="email" type="email" placeholder="Ej: ejemplo@ejemplo.com"
-                        pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]{1,}$" required />
+                        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$" required />
                     <div *ngIf="!emailRegister.valid && emailRegister.touched" class="input-field__warning">
                         Escriba una dirección de email válida
                     </div>

@@ -1,11 +1,11 @@
 <section class="container miscompras">
   <ul class="compras-list">
-    <li class="compra-card" *ngFor="let venta of ventas">
+    <li class="compra-card" *ngFor="let venta of ventas" data-aos="fade-up">
       <h2 class="compra-card__title compra-card__title--center">Compra Online</h2>
       <h2 class="compra-card__title">ID de la compra: {{venta.idVenta}}</h2>
       <h2 class="compra-card__title">Total: S/ {{venta.total}}</h2>
       <ul class="compra-card__booklist">
-        <li class="book-details" *ngFor="let ventadetalle of venta.ventaDetalles">
+        <li class="book-details" data-aos="fade-up" *ngFor="let ventadetalle of venta.ventaDetalles">
           <div class="book-details__img-container">
             <div class="book-details__img-wraper">
               <img class="book-details__img" [src]="ventadetalle.Imagen" alt="cover" class="book-details__img" />

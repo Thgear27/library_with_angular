@@ -5,6 +5,7 @@ import { BooksGridConfiguration } from 'src/app/classes/books-grid-configuration
 import { Libro } from 'src/app/models/libro';
 import { LibrosService } from 'src/app/services/libros.service';
 import { LoginService } from 'src/app/services/login.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-home-body',
@@ -26,6 +27,9 @@ export class HomeBodyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    AOS.init();
+    window.addEventListener('load', AOS.refresh);
+
     this.libroService.getAll().subscribe((data) => {
       this.libros = data;
     });

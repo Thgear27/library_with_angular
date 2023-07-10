@@ -1,11 +1,11 @@
 <section class="container details">
-  <div class="bookhero">
+  <div class="bookhero" data-aos="fade-up">
     <div class="bookhero__img-container">
       <div class="bookhero__img-wraper">
         <img class="bookhero__img" [src]="libro.imagen" alt="cover" />
       </div>
     </div>
-    <div class="bookhero__info-container">
+    <div class="bookhero__info-container" >
       <h1 class="bookhero__title">{{ libro!.titulo }}</h1>
       <p class="bookhero__info">Autor: {{ libro!.autor }}</p>
       <p class="bookhero__info">Editorial: {{ libro!.editorial.nombre }}</p>
@@ -24,22 +24,22 @@
       <strong>Descripción</strong><br />
       {{ libro!.descripcion }}
     </p>
-    <p class="moreinformation__textinfo">
+    <p data-aos="fade-up" class="moreinformation__textinfo">
       <strong>Año de publicación: </strong> {{ anioPublicacion }}
     </p>
-    <p class="moreinformation__textinfo">
+    <p data-aos="fade-up" class="moreinformation__textinfo">
       <strong>Editorial: </strong> {{ libro!.editorial.nombre }}
     </p>
-    <p class="moreinformation__textinfo">
+    <p data-aos="fade-up" class="moreinformation__textinfo">
       <strong>País: </strong> {{ libro!.editorial.pais.pais }}
     </p>
-    <p class="moreinformation__textinfo">
+    <p data-aos="fade-up" class="moreinformation__textinfo">
       <strong>Edición: </strong> {{ libro!.edicion }}
     </p>
-    <p class="moreinformation__textinfo">
+    <p data-aos="fade-up" class="moreinformation__textinfo">
       <strong>Autor:</strong> {{ libro!.autor }}
     </p>
-    <p class="moreinformation__textinfo">
+    <p data-aos="fade-up" class="moreinformation__textinfo">
       <strong>Categoría:</strong> {{ libro!.tipo.tipo }}
     </p>
   </div>
